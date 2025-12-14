@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Busy Beaver</title>
+    <meta name="description" content="">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="articles/article-styles.css">
+</head>
+<body>
+    <!-- Soft gradient background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Floating organic shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape--1"></div>
+        <div class="shape shape--2"></div>
+        <div class="shape shape--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="busy beaver logo.jpeg" alt="Busy Beaver" class="logo-img">
+            <span class="logo-text">busybeaver</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#writing" class="nav-link">Writing</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Article -->
+    <article class="article">
+        <header class="article-header" id="article-header">
+            <!-- Header content loaded dynamically -->
+        </header>
+
+        <!-- Article Content -->
+        <div class="article-content" id="article-content">
+            <p>Loading article...</p>
+        </div>
+
+        <!-- Article Footer -->
+        <footer class="article-footer">
+            <div class="article-tags">
+                <!-- Tags loaded dynamically -->
+            </div>
+
+            <div class="article-share">
+                <span class="share-label">Share this article:</span>
+                <div class="share-links">
+                    <a href="#" class="share-link" target="_blank" rel="noopener" title="Share on Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="share-link" title="Copy link" onclick="navigator.clipboard.writeText(window.location.href); this.title='Copied!'; return false;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="busy beaver logo.jpeg" alt="Busy Beaver" class="footer-logo">
+        <p>busybeaver.blog</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

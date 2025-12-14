@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busy Beaver</title>
+    <meta name="description" content="Techno-optimist. Builder. Believer in individual freedom and the transformative power of technology.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Soft gradient background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Floating organic shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape--1"></div>
+        <div class="shape shape--2"></div>
+        <div class="shape shape--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">
+            <img src="busy beaver logo.jpeg" alt="Busy Beaver" class="logo-img">
+            <span class="logo-text">busybeaver</span>
+        </a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#writing" class="nav-link">Writing</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-visual">
+                <img src="busy beaver logo.jpeg" alt="Busy Beaver Logo" class="hero-logo">
+                <div class="hero-decoration">
+                    <!-- Circuit pattern decoration -->
+                    <svg class="circuit-decoration" viewBox="0 0 200 200" fill="none">
+                        <circle cx="20" cy="100" r="4" fill="currentColor" opacity="0.6"/>
+                        <circle cx="60" cy="60" r="3" fill="currentColor" opacity="0.4"/>
+                        <circle cx="140" cy="40" r="4" fill="currentColor" opacity="0.5"/>
+                        <circle cx="180" cy="100" r="3" fill="currentColor" opacity="0.6"/>
+                        <circle cx="160" cy="160" r="4" fill="currentColor" opacity="0.4"/>
+                        <circle cx="40" cy="160" r="3" fill="currentColor" opacity="0.5"/>
+                        <path d="M20 100 L60 60" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <path d="M60 60 L140 40" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <path d="M140 40 L180 100" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <path d="M180 100 L160 160" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <path d="M160 160 L40 160" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <path d="M40 160 L20 100" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                    </svg>
+                </div>
+            </div>
+
+            <h1 class="hero-title">
+                Shaping the world through technology,
+                <span class="title-accent">one idea at a time.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Techno-optimist. Believer in individual freedom, the quiet power of
+                cryptography, and technology as a force for human flourishing.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section--about">
+        <div class="about-header">
+            <div class="section-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+            </div>
+            <h2 class="section-title">About</h2>
+        </div>
+
+        <div class="about-content">
+            <p class="text-large">
+                The Busy Beaver is one of mathematics' most beautiful puzzles—asking
+                what's the maximum a simple machine can accomplish before it stops.
+            </p>
+
+            <p>
+                It's the perfect metaphor for how I think about building: finding the
+                greatest impact from the simplest foundations. Not complexity for its
+                own sake, but elegant solutions that create space for human flourishing.
+            </p>
+
+            <p>
+                I'm drawn to cryptography not just for its mathematical beauty, but for
+                what it enables—privacy as a fundamental right, self-sovereignty in the
+                digital realm, and trust without intermediaries.
+            </p>
+
+            <p>
+                We're living through the most consequential technological moment in
+                history. I believe in building thoughtfully, optimistically, and always
+                in service of expanding human potential.
+            </p>
+        </div>
+
+        <!-- Visual element -->
+        <div class="about-visual">
+            <svg class="tape-illustration" viewBox="0 0 300 60" fill="none">
+                <rect x="0" y="15" width="40" height="30" rx="4" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <rect x="50" y="15" width="40" height="30" rx="4" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <rect x="100" y="15" width="40" height="30" rx="4" fill="#2EC4B6" opacity="0.2" stroke="#2EC4B6" stroke-width="1.5"/>
+                <rect x="150" y="15" width="40" height="30" rx="4" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <rect x="200" y="15" width="40" height="30" rx="4" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <rect x="250" y="15" width="40" height="30" rx="4" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <!-- Read head indicator -->
+                <path d="M120 5 L120 12" stroke="#2EC4B6" stroke-width="2"/>
+                <circle cx="120" cy="3" r="3" fill="#2EC4B6"/>
+                <text x="10" y="35" font-family="monospace" font-size="12" fill="currentColor" opacity="0.5">0</text>
+                <text x="60" y="35" font-family="monospace" font-size="12" fill="currentColor" opacity="0.5">1</text>
+                <text x="110" y="35" font-family="monospace" font-size="12" fill="#2EC4B6">1</text>
+                <text x="160" y="35" font-family="monospace" font-size="12" fill="currentColor" opacity="0.5">0</text>
+                <text x="210" y="35" font-family="monospace" font-size="12" fill="currentColor" opacity="0.5">1</text>
+                <text x="260" y="35" font-family="monospace" font-size="12" fill="currentColor" opacity="0.5">0</text>
+            </svg>
+            <p class="visual-caption">Like a Turing machine, seeking maximum output from first principles.</p>
+        </div>
+    </section>
+
+    <!-- Writing Section -->
+    <section id="writing" class="section section--writing">
+        <div class="about-header">
+            <div class="section-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                    <path d="M2 2l7.586 7.586"/>
+                    <circle cx="11" cy="11" r="2"/>
+                </svg>
+            </div>
+            <h2 class="section-title">Writing</h2>
+        </div>
+
+        <div class="posts-list" id="posts-container">
+            <!-- Posts loaded dynamically from markdown files -->
+            <p class="loading-posts">Loading posts...</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section--contact">
+        <div class="contact-content">
+            <div class="contact-visual">
+                <svg viewBox="0 0 120 120" fill="none" class="contact-illustration">
+                    <circle cx="60" cy="60" r="50" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                    <circle cx="60" cy="60" r="35" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+                    <circle cx="60" cy="60" r="20" stroke="#2EC4B6" stroke-width="1.5" opacity="0.4"/>
+                    <circle cx="60" cy="60" r="4" fill="#2EC4B6"/>
+                    <!-- Connection dots -->
+                    <circle cx="60" cy="10" r="3" fill="currentColor" opacity="0.3"/>
+                    <circle cx="103" cy="35" r="3" fill="currentColor" opacity="0.3"/>
+                    <circle cx="103" cy="85" r="3" fill="currentColor" opacity="0.3"/>
+                    <circle cx="60" cy="110" r="3" fill="#2EC4B6" opacity="0.5"/>
+                    <circle cx="17" cy="85" r="3" fill="currentColor" opacity="0.3"/>
+                    <circle cx="17" cy="35" r="3" fill="currentColor" opacity="0.3"/>
+                    <!-- Lines -->
+                    <path d="M60 10 L60 60" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+                    <path d="M60 60 L60 110" stroke="#2EC4B6" stroke-width="1" opacity="0.3"/>
+                    <path d="M60 60 L103 35" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+                    <path d="M60 60 L17 85" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+                </svg>
+            </div>
+            <h2 class="section-title">Say Hello</h2>
+            <p class="contact-text">
+                Building something interesting? Want to discuss ideas?
+                I'd love to hear from you.
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:hello@busybeaver.blog" class="contact-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="M22 6l-10 7L2 6"/>
+                    </svg>
+                    <span>hello@busybeaver.blog</span>
+                </a>
+                <a href="https://twitter.com" class="contact-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://github.com" class="contact-link" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="busy beaver logo.jpeg" alt="Busy Beaver" class="footer-logo">
+        <p>busybeaver.blog</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

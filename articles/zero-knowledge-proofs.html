@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quiet Revolution of Zero-Knowledge Proofs | Busy Beaver</title>
+    <meta name="description" content="Proving you know something without revealing what you know. Why this elegant mathematical concept might be the key to preserving privacy in an increasingly transparent world.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="article-styles.css">
+</head>
+<body>
+    <!-- Soft gradient background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Floating organic shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape--1"></div>
+        <div class="shape shape--2"></div>
+        <div class="shape shape--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+            <img src="../busy beaver logo.jpeg" alt="Busy Beaver" class="logo-img">
+            <span class="logo-text">busybeaver</span>
+        </a>
+        <div class="nav-links">
+            <a href="../index.html#about" class="nav-link">About</a>
+            <a href="../index.html#writing" class="nav-link">Writing</a>
+            <a href="../index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Article Header -->
+    <article class="article">
+        <header class="article-header">
+            <a href="../index.html#writing" class="back-link">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 4l-8 8 8 8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Back to Writing</span>
+            </a>
+
+            <div class="article-meta">
+                <span class="article-category">Cryptography</span>
+                <span class="article-date">Coming Soon</span>
+                <span class="article-reading-time">8 min read</span>
+            </div>
+
+            <h1 class="article-title">The Quiet Revolution of Zero-Knowledge Proofs</h1>
+
+            <p class="article-subtitle">
+                Proving you know something without revealing what you know. Why this elegant
+                mathematical concept might be the key to preserving privacy in an increasingly
+                transparent world.
+            </p>
+
+            <div class="article-author">
+                <img src="../busy beaver logo.jpeg" alt="Busy Beaver" class="author-avatar">
+                <div class="author-info">
+                    <span class="author-name">Busy Beaver</span>
+                    <span class="author-handle">@busybeaver</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Article Content -->
+        <div class="article-content">
+            <p>
+                <em>This article is currently being written. Check back soon for the full piece
+                on zero-knowledge proofs and their implications for privacy and digital sovereignty.</em>
+            </p>
+
+            <h2>The Privacy Paradox</h2>
+
+            <p>
+                We live in an age where proving who you are increasingly means revealing everything
+                about yourself. Want to verify you're old enough to enter a venue? Hand over your
+                driver's license with your exact birthdate, address, and photo. Need to prove you
+                have sufficient funds for a transaction? Expose your entire bank balance.
+            </p>
+
+            <p>
+                This is the privacy paradox of our digital age: <strong>verification requires
+                revelation</strong>. Every time we prove something about ourselves, we surrender
+                far more information than necessary for the task at hand.
+            </p>
+
+            <blockquote>
+                "The most elegant solutions in mathematics often come from asking: what's the
+                minimum information needed to prove something is true?"
+            </blockquote>
+
+            <h2>What Are Zero-Knowledge Proofs?</h2>
+
+            <p>
+                Zero-knowledge proofs (ZKPs) answer this question with startling simplicity: you
+                can prove you know something without revealing the thing itself. It's like proving
+                you know the combination to a safe by opening it, without ever telling anyone the
+                numbers.
+            </p>
+
+            <p>The concept rests on three fundamental properties:</p>
+
+            <ul>
+                <li><strong>Completeness:</strong> If the statement is true, an honest verifier will be convinced</li>
+                <li><strong>Soundness:</strong> If the statement is false, no cheating prover can convince the verifier</li>
+                <li><strong>Zero-knowledge:</strong> The verifier learns nothing except that the statement is true</li>
+            </ul>
+
+            <h3>A Simple Example: The Color-Blind Friend</h3>
+
+            <p>
+                Imagine you have two balls—one red, one green—and your color-blind friend insists
+                they're identical. You want to prove the balls are different colors without revealing
+                which is which.
+            </p>
+
+            <p>
+                The protocol is elegant: your friend holds both balls behind their back, then either
+                swaps them or doesn't, and shows you one ball. You simply tell them whether they
+                swapped. If you're telling the truth about the colors being different, you'll be
+                right every single time. After enough rounds, the probability of you guessing
+                correctly by chance becomes vanishingly small.
+            </p>
+
+            <p>
+                Your friend is now convinced the balls are different colors—but has learned nothing
+                about which ball is which color.
+            </p>
+
+            <h2>Why This Matters Now</h2>
+
+            <p>
+                Zero-knowledge proofs aren't just elegant mathematics—they're becoming the foundation
+                of a new architecture for digital privacy. Here's where they're already making an impact:
+            </p>
+
+            <h3>Financial Privacy</h3>
+
+            <p>
+                Cryptocurrencies like Zcash use ZKPs to enable truly private transactions. You can
+                prove you have the funds to make a payment without revealing your balance, transaction
+                history, or identity.
+            </p>
+
+            <h3>Digital Identity</h3>
+
+            <p>
+                Imagine proving you're over 21 without showing your birthdate. Or proving you're a
+                resident of a country without showing your address. ZKPs make selective disclosure
+                possible—revealing exactly what's needed, nothing more.
+            </p>
+
+            <h3>Scalable Blockchain Systems</h3>
+
+            <p>
+                Technologies like zk-SNARKs and zk-STARKs are enabling blockchains to verify thousands
+                of transactions in a single proof, dramatically improving scalability while maintaining
+                security.
+            </p>
+
+            <h2>The Philosophical Implications</h2>
+
+            <p>
+                What fascinates me most about zero-knowledge proofs isn't just their technical elegance—it's
+                what they represent philosophically. In a world trending toward total transparency, ZKPs
+                offer a different model: <strong>trust through verification, not surveillance</strong>.
+            </p>
+
+            <p>
+                They embody a principle I believe is fundamental to human dignity: that we should be able
+                to participate in society without being forced to expose our entire selves. Privacy isn't
+                about having something to hide—it's about having something to protect.
+            </p>
+
+            <blockquote>
+                "The right to privacy is not about secrets. It's about the freedom to choose what we
+                reveal, to whom, and when."
+            </blockquote>
+
+            <h2>Building with ZKPs</h2>
+
+            <p>
+                For builders, the question isn't whether zero-knowledge proofs will matter—it's how soon
+                they'll become a standard part of our toolkit. The technology is moving from academic
+                research to production systems faster than almost anyone predicted.
+            </p>
+
+            <p>Consider exploring these areas:</p>
+
+            <ul>
+                <li>Privacy-preserving authentication systems</li>
+                <li>Verifiable credentials that reveal only what's necessary</li>
+                <li>Scaling solutions for blockchain networks</li>
+                <li>Private machine learning and data analysis</li>
+            </ul>
+
+            <h2>Looking Forward</h2>
+
+            <p>
+                We're at an inflection point. The tools to build privacy-first systems aren't just
+                theoretical anymore—they're practical, improving rapidly, and increasingly accessible
+                to developers.
+            </p>
+
+            <p>
+                Zero-knowledge proofs won't solve every privacy challenge. But they offer something
+                rare: a mathematically sound way to prove things without revealing them. In an age where
+                data is power, that's not just useful—it's essential.
+            </p>
+
+            <p>
+                The quiet revolution is happening. The question is: will we build systems that use these
+                tools to empower individuals, or will we let the default trend toward transparency win?
+            </p>
+
+            <p>
+                I believe we have a responsibility to build the former. The mathematics gives us the
+                foundation. Now it's time to build the future on top of it.
+            </p>
+        </div>
+
+        <!-- Article Footer -->
+        <footer class="article-footer">
+            <div class="article-tags">
+                <span class="tag">Zero-Knowledge Proofs</span>
+                <span class="tag">Cryptography</span>
+                <span class="tag">Privacy</span>
+                <span class="tag">Digital Identity</span>
+            </div>
+
+            <div class="article-share">
+                <span class="share-label">Share this article:</span>
+                <div class="share-links">
+                    <a href="https://twitter.com/intent/tweet?text=The%20Quiet%20Revolution%20of%20Zero-Knowledge%20Proofs&url=https://busybeaver.blog/articles/zero-knowledge-proofs" class="share-link" target="_blank" rel="noopener" title="Share on Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="share-link" title="Copy link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2 class="related-title">More from Busy Beaver</h2>
+        <div class="related-grid">
+            <a href="../index.html#writing" class="related-card">
+                <span class="related-category">Philosophy</span>
+                <h3 class="related-card-title">What the Busy Beaver Teaches Us About Limits</h3>
+                <p class="related-excerpt">An exploration of computability, ambition, and the beauty of working within constraints.</p>
+            </a>
+            <a href="../index.html#writing" class="related-card">
+                <span class="related-category">Technology</span>
+                <h3 class="related-card-title">Techno-Optimism as a Practice</h3>
+                <p class="related-excerpt">Why believing in technology's potential isn't naive—it's necessary.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="../busy beaver logo.jpeg" alt="Busy Beaver" class="footer-logo">
+        <p>busybeaver.blog</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
