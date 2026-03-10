@@ -21,10 +21,10 @@ function parseMarkdown(md) {
         .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
         // Unordered lists
         .replace(/^- (.*$)/gm, '<li>$1</li>')
+        // Images (must come before links)
+        .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
         // Links
         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-        // Images
-        .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
         // Horizontal rules
         .replace(/^---$/gm, '<hr>')
         // Line breaks to paragraphs
