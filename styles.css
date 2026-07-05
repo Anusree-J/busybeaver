@@ -327,32 +327,6 @@ a {
     margin-bottom: 0;
 }
 
-/* Currently thinking about */
-.thinking-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-}
-
-.thinking-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    color: var(--color-text-soft);
-    line-height: 1.5;
-}
-
-.thinking-list li::before {
-    content: "?";
-    position: absolute;
-    left: 0;
-    color: #2EC4B6;
-    font-family: var(--font-display);
-    font-weight: 600;
-}
-
 /* Current toppers - watchlist / readlist */
 .about-toppers {
     margin-top: var(--space-lg);
