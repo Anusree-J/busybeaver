@@ -327,24 +327,61 @@ a {
     margin-bottom: 0;
 }
 
-/* About Visual - Turing Tape */
-.about-visual {
+/* Currently thinking about */
+.thinking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.thinking-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-text-soft);
+    line-height: 1.5;
+}
+
+.thinking-list li::before {
+    content: "?";
+    position: absolute;
+    left: 0;
+    color: #2EC4B6;
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+/* Current toppers - watchlist / readlist */
+.about-toppers {
     margin-top: var(--space-lg);
-    text-align: center;
+    max-width: 600px;
 }
 
-.tape-illustration {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    color: var(--color-text);
+.toppers-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
     margin-bottom: var(--space-sm);
+    color: var(--color-text);
 }
 
-.visual-caption {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--color-text-muted);
+.toppers-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.toppers-list li {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--color-text-muted);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--color-text-soft);
 }
 
 /* ========================================
@@ -538,7 +575,7 @@ a {
 .hero-subtitle,
 .about-header,
 .about-content,
-.about-visual,
+.about-toppers,
 .post-item,
 .contact-content {
     opacity: 0;
@@ -551,7 +588,7 @@ a {
 .hero-subtitle { animation-delay: 0.3s; }
 .about-header { animation-delay: 0.1s; }
 .about-content { animation-delay: 0.15s; }
-.about-visual { animation-delay: 0.2s; }
+.about-toppers { animation-delay: 0.2s; }
 .post-item:nth-child(1) { animation-delay: 0.1s; }
 .post-item:nth-child(2) { animation-delay: 0.15s; }
 .post-item:nth-child(3) { animation-delay: 0.2s; }
