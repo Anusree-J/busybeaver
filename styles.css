@@ -110,8 +110,7 @@ a { color: inherit; }
     width: 280px;
     height: 280px;
     object-fit: contain;
-    opacity: 0.26;
-    mix-blend-mode: multiply;
+    opacity: 0.32;
     pointer-events: none;
     user-select: none;
 }
