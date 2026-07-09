@@ -245,10 +245,21 @@ a { color: inherit; }
 }
 
 /* The Builder ---------------------------- */
-.builder-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px 40px;
+.builder-cols {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.builder-main { flex: 1.15; }
+.builder-side { flex: 1; }
+
+.builder-main,
+.builder-side {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 0;
 }
 
 .builder-key {
@@ -276,6 +287,27 @@ a { color: inherit; }
 .builder-item strong { font-weight: 700; }
 
 .builder-sub { color: var(--muted-2); }
+
+.builder-sub a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(25, 159, 149, 0.35);
+}
+
+.builder-sub a:hover { opacity: 0.75; }
+
+.builder-pub {
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+    transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.builder-pub:hover {
+    color: var(--teal);
+    border-color: var(--teal);
+}
 
 /* Colophon ------------------------------- */
 .colophon {
@@ -334,7 +366,7 @@ a { color: inherit; }
         opacity: 0.16;
     }
 
-    .builder-grid { grid-template-columns: 1fr; }
+    .builder-cols { flex-direction: column; gap: 30px; }
 
     .log-row { grid-template-columns: 48px 1fr; }
     .log-date { grid-column: 2; }
