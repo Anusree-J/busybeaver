@@ -2,11 +2,14 @@
    Busy Beaver — Post page (blueprint)
    ======================================== */
 
-.sheet--post { max-width: 760px; }
+.sheet--post {
+    max-width: 760px;
+    --pad-x: clamp(24px, 6vw, 64px);
+}
 
 /* Post header ---------------------------- */
 .post-head {
-    padding: 56px var(--pad-x) 28px;
+    padding: var(--s-2xl) var(--pad-x) var(--s-lg);
     border-bottom: 1px dashed var(--dash);
 }
 
@@ -41,7 +44,7 @@
 
 /* Post body ------------------------------ */
 .post-body {
-    padding: 34px var(--pad-x) 52px;
+    padding: var(--s-lg) var(--pad-x) var(--s-2xl);
     font-size: 15.5px;
     line-height: 1.85;
     color: var(--ink-soft);
@@ -140,8 +143,8 @@
 .post-nav {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
-    padding: 14px var(--pad-x);
+    gap: var(--s-sm);
+    padding: var(--s-sm) var(--pad-x);
     border-top: 1px dashed var(--dash);
     font-family: var(--font-mono);
     font-size: 11px;
