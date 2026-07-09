@@ -146,7 +146,7 @@ a { color: inherit; }
     font-size: 16px;
     line-height: 1.7;
     color: var(--muted);
-    max-width: 430px;
+    max-width: 470px;
 }
 
 .hero-pills {
