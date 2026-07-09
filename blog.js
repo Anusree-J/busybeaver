@@ -88,96 +88,63 @@ function calculateReadingTime(text) {
     return `${minutes} min read`;
 }
 
-// Icon SVG templates
-const icons = {
-    lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="11" width="18" height="11" rx="2"/>
-        <circle cx="12" cy="16" r="1"/>
-        <path d="M7 11V7a5 5 0 0110 0v4"/>
-    </svg>`,
-    globe: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/>
-        <path d="M2 12h20"/>
-    </svg>`,
-    bell: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-        <path d="M13.73 21a2 2 0 01-3.46 0"/>
-        <path d="M12 2v2"/>
-    </svg>`,
-    code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <polyline points="16,18 22,12 16,6"/>
-        <polyline points="8,6 2,12 8,18"/>
-    </svg>`,
-    book: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
-    </svg>`,
-    default: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-        <path d="M2 2l7.586 7.586"/>
-        <circle cx="11" cy="11" r="2"/>
-    </svg>`
-};
+// Fetch and parse every post referenced in posts.json, sorted newest-first
+async function fetchAllPosts() {
+    const response = await fetch('posts/posts.json');
+    const postFiles = await response.json();
 
-// Load posts list for homepage
+    const posts = [];
+    for (const file of postFiles) {
+        const postResponse = await fetch(`posts/${file}`);
+        const markdown = await postResponse.text();
+        const { metadata, content } = parseFrontmatter(markdown);
+
+        posts.push({
+            slug: file.replace('.md', ''),
+            title: metadata.title || 'Untitled',
+            description: metadata.description || '',
+            date: metadata.date || 'Coming Soon',
+            category: metadata.category || 'General',
+            content
+        });
+    }
+
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    return posts;
+}
+
+// Zero-padded log number, newest post = highest
+function logNumber(total, index) {
+    return String(total - index).padStart(3, '0');
+}
+
+// Load writing index for homepage
 async function loadPostsList() {
     const container = document.getElementById('posts-container');
     if (!container) return;
 
     try {
-        const response = await fetch('posts/posts.json');
-        const postFiles = await response.json();
+        const posts = await fetchAllPosts();
+        const total = posts.length;
 
-        const posts = [];
+        const countEl = document.getElementById('logs-count');
+        if (countEl) countEl.textContent = String(total).padStart(2, '0');
 
-        for (const file of postFiles) {
-            const postResponse = await fetch(`posts/${file}`);
-            const markdown = await postResponse.text();
-            const { metadata, content } = parseFrontmatter(markdown);
-
-            // Get first paragraph as excerpt
-            const plainText = content.replace(/[#*`>\[\]()-]/g, '').trim();
-            const firstParagraph = plainText.split('\n\n')[0];
-            const excerpt = firstParagraph.slice(0, 200) + (firstParagraph.length > 200 ? '...' : '');
-
-            posts.push({
-                slug: file.replace('.md', ''),
-                title: metadata.title || 'Untitled',
-                description: metadata.description || excerpt,
-                date: metadata.date || 'Coming Soon',
-                category: metadata.category || 'General',
-                icon: metadata.icon || 'default',
-                content
-            });
-        }
-
-        // Sort by date (newest first)
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        // Render posts
-        container.innerHTML = posts.map(post => `
-            <a href="article.html?post=${post.slug}" class="post-item">
-                <div class="post-icon">
-                    ${icons[post.icon] || icons.default}
-                </div>
-                <div class="post-content">
-                    <span class="post-tag">${post.category}</span>
-                    <h3 class="post-title">${post.title}</h3>
-                    <p class="post-excerpt">${post.description}</p>
-                    <span class="post-date">${formatDate(post.date)}</span>
-                </div>
+        container.innerHTML = posts.map((post, i) => `
+            <a href="article.html?post=${post.slug}" class="log-row">
+                <span class="log-num">${logNumber(total, i)}</span>
+                <span class="log-title">${post.title}<span class="log-cat">${post.category}</span></span>
+                <span class="log-date">${formatLogDate(post.date)}</span>
             </a>
         `).join('');
 
     } catch (error) {
         console.error('Error loading posts:', error);
-        container.innerHTML = '<p>No posts available yet.</p>';
+        container.innerHTML = '<p class="log-loading">No logs available yet.</p>';
     }
 }
 
-// Load single article
+// Load single log / article
 async function loadArticle() {
     const container = document.getElementById('article-content');
     const headerContainer = document.getElementById('article-header');
@@ -192,84 +159,70 @@ async function loadArticle() {
     }
 
     try {
-        const response = await fetch(`posts/${slug}.md`);
-        if (!response.ok) throw new Error('Post not found');
+        // Load the full index so we can number logs and build prev/next nav
+        const posts = await fetchAllPosts();
+        const total = posts.length;
+        const index = posts.findIndex(p => p.slug === slug);
+        if (index === -1) throw new Error('Post not found');
 
-        const markdown = await response.text();
-        const { metadata, content } = parseFrontmatter(markdown);
+        const post = posts[index];
+        const { metadata, content } = parseFrontmatter(
+            await (await fetch(`posts/${slug}.md`)).text()
+        );
 
-        // Update page title
-        document.title = `${metadata.title || 'Article'} | Busy Beaver`;
+        const logId = logNumber(total, index);
 
-        // Update meta description
+        // Update page title + meta description
+        document.title = `LOG_${logId} · ${post.title} | Busy Beaver`;
         const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) metaDesc.content = metadata.description || '';
+        if (metaDesc) metaDesc.content = post.description;
 
         // Render header
         if (headerContainer) {
-            const tags = Array.isArray(metadata.tags) ? metadata.tags : [];
             headerContainer.innerHTML = `
-                <a href="index.html#writing" class="back-link">
-                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 4l-8 8 8 8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Back to Writing</span>
-                </a>
-
-                <div class="article-meta">
-                    <span class="article-category">${metadata.category || 'General'}</span>
-                    <span class="article-date">${formatDate(metadata.date)}</span>
-                    <span class="article-reading-time">${calculateReadingTime(content)}</span>
+                <div class="post-meta">
+                    <span class="post-log">LOG_${logId}</span>
+                    <span>${post.category}</span>
+                    <span>${formatLogDate(post.date)}</span>
+                    <span>${calculateReadingTime(content).replace(' read', '').toUpperCase()}</span>
                 </div>
-
-                <h1 class="article-title">${metadata.title || 'Untitled'}</h1>
-
-                <p class="article-subtitle">${metadata.description || ''}</p>
-
-                <div class="article-author">
-                    <img src="busy beaver logo.jpeg" alt="Busy Beaver" class="author-avatar">
-                    <div class="author-info">
-                        <span class="author-name">Busy Beaver</span>
-                        <span class="author-handle">@busybeaver</span>
-                    </div>
-                </div>
+                <h1 class="post-title">${post.title}</h1>
+                ${post.description ? `<p class="post-subtitle">${post.description}</p>` : ''}
             `;
         }
 
-        // Render content
+        // Render body
         container.innerHTML = parseMarkdown(content);
 
-        // Update tags in footer
-        const tagsContainer = document.querySelector('.article-tags');
-        if (tagsContainer && Array.isArray(metadata.tags)) {
-            tagsContainer.innerHTML = metadata.tags.map(tag =>
-                `<span class="tag">${tag}</span>`
-            ).join('');
-        }
-
-        // Update share links
-        const shareTwitter = document.querySelector('.share-link[title="Share on Twitter"]');
-        if (shareTwitter) {
-            const shareUrl = encodeURIComponent(window.location.href);
-            const shareText = encodeURIComponent(metadata.title || 'Article');
-            shareTwitter.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+        // Prev (older) / Next (newer) navigation
+        const navEl = document.getElementById('article-nav');
+        if (navEl) {
+            const older = posts[index + 1];
+            const newer = posts[index - 1];
+            const parts = [];
+            parts.push(older
+                ? `<a href="article.html?post=${older.slug}">← LOG_${logNumber(total, index + 1)}</a>`
+                : `<span></span>`);
+            if (newer) {
+                parts.push(`<a class="is-next" href="article.html?post=${newer.slug}">LOG_${logNumber(total, index - 1)} →</a>`);
+            }
+            navEl.innerHTML = parts.join('');
         }
 
     } catch (error) {
         console.error('Error loading article:', error);
-        container.innerHTML = '<p>Article not found.</p>';
+        container.innerHTML = '<p class="log-loading">Log not found.</p>';
     }
 }
 
-// Format date helper
-function formatDate(dateStr) {
-    if (!dateStr || dateStr === 'Coming Soon') return 'Coming Soon';
+// Format a date as YYYY-MM for log listings
+function formatLogDate(dateStr) {
+    if (!dateStr || dateStr === 'Coming Soon') return 'DRAFT';
     const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    if (isNaN(date)) return String(dateStr);
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    return `${y}-${m}`;
 }
 
 // Initialize on page load
