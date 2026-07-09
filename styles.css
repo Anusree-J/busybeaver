@@ -17,8 +17,7 @@
     --font-sans: 'Manrope', system-ui, sans-serif;
     --font-mono: 'Fragment Mono', ui-monospace, Menlo, monospace;
 
-    --pad-x: 52px;
-    --sheet-max: 940px;
+    --pad-x: clamp(24px, 5vw, 104px);
 }
 
 * { box-sizing: border-box; }
@@ -27,7 +26,7 @@ html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    background: var(--page-bg);
+    background: var(--paper);
     color: var(--ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -39,25 +38,17 @@ a { color: inherit; }
 
 ::selection { background: rgba(25, 159, 149, 0.22); }
 
-/* Sheet ---------------------------------- */
+/* Sheet — full-bleed, fills the viewport ---- */
 .sheet {
-    max-width: var(--sheet-max);
-    margin: 0 auto;
+    width: 100%;
     background: var(--paper);
-    border-left: 1px solid rgba(0, 0, 0, 0.06);
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
     min-height: 100vh;
 }
 
-@media (min-width: 980px) {
-    .sheet {
-        margin: 28px auto;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 10px;
-        box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
-        overflow: hidden;
-        min-height: 0;
-    }
+/* Post pages keep a readable text column while the page fills the screen */
+.sheet--post {
+    max-width: 860px;
+    margin: 0 auto;
 }
 
 /* Masthead ------------------------------- */
@@ -244,70 +235,114 @@ a { color: inherit; }
     white-space: nowrap;
 }
 
-/* The Builder ---------------------------- */
-.builder-cols {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
+/* The Builder — label-left editorial rows --- */
+.builder { display: flex; flex-direction: column; }
+
+.builder-row {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 72px);
+    padding: 34px 0;
+    border-top: 1px dashed var(--dash);
 }
 
-.builder-main { flex: 1.15; }
-.builder-side { flex: 1; }
-
-.builder-main,
-.builder-side {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    min-width: 0;
+.builder-row:first-child {
+    border-top: none;
+    padding-top: 4px;
 }
 
-.builder-key {
+.builder-rowlabel {
     font-family: var(--font-mono);
-    font-size: 10.5px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    padding-top: 3px;
+}
+
+.builder-rowitems {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 760px;
+}
+
+/* Stacked entry: title row + description below */
+.entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+}
+
+.entry-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+}
+
+.entry-org {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.entry-org::before {
+    content: "· ";
     color: var(--mono-gray);
-    letter-spacing: 0.04em;
-    margin-bottom: 10px;
 }
 
-.builder-body {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.entry-link {
+    text-decoration: none;
+    transition: color 0.18s ease;
 }
 
-.builder-item {
-    display: flex;
-    flex-direction: column;
+.entry-link:hover { color: var(--teal); }
+
+.entry-meta {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--mono-gray);
+    white-space: nowrap;
 }
 
-.builder-item strong { font-weight: 700; }
+.entry-sub {
+    margin-top: 5px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--muted-2);
+}
 
-.builder-sub { color: var(--muted-2); }
-
-.builder-sub a {
+.entry-sub a {
     color: var(--teal);
     text-decoration: none;
     border-bottom: 1px solid rgba(25, 159, 149, 0.35);
 }
 
-.builder-sub a:hover { opacity: 0.75; }
+.entry-sub a:hover { opacity: 0.7; }
 
-.builder-pub {
-    font-weight: 700;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
-    transition: color 0.18s ease, border-color 0.18s ease;
+/* Inline entry: title and note on one line (open source, volunteering) */
+.entry--inline {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.builder-pub:hover {
+.entry--inline .entry-sub { margin-top: 0; }
+
+.entry-more {
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.entry-more a {
     color: var(--teal);
-    border-color: var(--teal);
+    text-decoration: none;
 }
+
+.entry-more a:hover { opacity: 0.7; }
 
 /* Colophon ------------------------------- */
 .colophon {
@@ -366,7 +401,12 @@ a { color: inherit; }
         opacity: 0.16;
     }
 
-    .builder-cols { flex-direction: column; gap: 30px; }
+    .builder-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 26px 0;
+    }
+    .builder-rowlabel { padding-top: 0; }
 
     .log-row { grid-template-columns: 48px 1fr; }
     .log-date { grid-column: 2; }
