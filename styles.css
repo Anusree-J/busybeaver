@@ -11,6 +11,8 @@
     --sage: #93a585;
     --bloom: #c26d4f;
     --marigold: #d9a441;
+    --bark: #8a6f52;
+    --petalc: #d9a0a0;
     --hairline: rgba(44, 58, 46, 0.14);
 
     --serif-display: 'Fraunces', Georgia, serif;
@@ -96,7 +98,8 @@ em { font-style: italic; }
 /* Entrance (hero) ------------------------ */
 .entrance {
     position: relative;
-    padding: clamp(64px, 10vh, 110px) var(--pad-x) var(--s-xl);
+    z-index: 0;
+    padding: clamp(64px, 10vh, 110px) var(--pad-x) clamp(90px, 14vh, 140px);
     overflow: hidden;
 }
 
@@ -154,12 +157,127 @@ em { font-style: italic; }
 
 .entrance-flora {
     position: absolute;
-    right: var(--pad-x);
-    bottom: 0;
-    width: min(320px, 34vw);
+    right: calc(var(--pad-x) * 0.8);
+    bottom: 26px;
+    width: min(300px, 32vw);
     color: var(--moss);
     pointer-events: none;
+    z-index: -1;
 }
+
+.entrance-branch {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    width: min(420px, 36vw);
+    pointer-events: none;
+    z-index: -1;
+    transform-origin: top right;
+}
+
+/* Meadow at the hero's foot ---------------- */
+.meadow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    width: 100%;
+    pointer-events: none;
+    z-index: -1;
+    transform-origin: bottom center;
+}
+
+.meadow--back { opacity: 0.5; height: 100px; }
+.meadow--front { opacity: 0.75; height: 82px; }
+
+/* Drifting petals -------------------------- */
+.petals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.petal {
+    position: absolute;
+    top: -24px;
+    width: 11px;
+    height: 15px;
+    background: var(--petalc);
+    border-radius: 62% 38% 58% 42% / 48% 55% 45% 52%;
+    opacity: 0;
+    animation: petalFall 13s linear infinite;
+}
+
+.petal:nth-child(1) { left: 12%; animation-delay: 0s; }
+.petal:nth-child(2) { left: 30%; animation-delay: 4.5s; animation-duration: 16s; }
+.petal:nth-child(3) { left: 48%; animation-delay: 9s; }
+.petal:nth-child(4) { left: 62%; animation-delay: 2s; animation-duration: 15s; background: var(--bloom); }
+.petal:nth-child(5) { left: 78%; animation-delay: 6.5s; }
+.petal:nth-child(6) { left: 90%; animation-delay: 11s; animation-duration: 17s; background: var(--marigold); }
+
+@keyframes petalFall {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    6% { opacity: 0.55; }
+    50% { transform: translate(-26px, 46vh) rotate(150deg); opacity: 0.5; }
+    92% { opacity: 0.35; }
+    100% { transform: translate(14px, 92vh) rotate(310deg); opacity: 0; }
+}
+
+/* Butterfly -------------------------------- */
+.butterfly {
+    position: absolute;
+    top: 22%;
+    right: min(30%, 420px);
+    width: 30px;
+    pointer-events: none;
+    animation: flutter 16s ease-in-out infinite;
+}
+
+@keyframes flutter {
+    0% { transform: translate(0, 0) rotate(-6deg); }
+    20% { transform: translate(-46px, 26px) rotate(7deg); }
+    45% { transform: translate(-100px, -8px) rotate(-8deg); }
+    65% { transform: translate(-58px, 40px) rotate(6deg); }
+    85% { transform: translate(-12px, 12px) rotate(-4deg); }
+    100% { transform: translate(0, 0) rotate(-6deg); }
+}
+
+/* Wind ------------------------------------- */
+.sway {
+    animation: sway 6.5s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+}
+
+.sway--slow { animation-duration: 9.5s; }
+.sway--late { animation-delay: -3.5s; animation-duration: 8s; }
+
+@keyframes sway {
+    from { transform: rotate(-1.3deg); }
+    to { transform: rotate(1.5deg); }
+}
+
+/* branch hangs from above: pivot at its anchor */
+.entrance-branch.sway { animation-name: swayBranch; }
+
+@keyframes swayBranch {
+    from { transform: rotate(-0.8deg); }
+    to { transform: rotate(1deg); }
+}
+
+/* Scattered flora -------------------------- */
+.flora {
+    position: absolute;
+    color: var(--moss);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.flora--tr { top: var(--s-lg); right: calc(var(--pad-x) * 0.35); width: 74px; opacity: 0.6; }
+.flora--tl { top: var(--s-lg); left: calc(var(--pad-x) * 0.3); width: 100px; opacity: 0.55; }
+.flora--l { bottom: var(--s-lg); left: calc(var(--pad-x) * 0.3); width: 60px; opacity: 0.65; }
+.flora--tree { right: calc(var(--pad-x) * 0.15); bottom: var(--s-md); width: min(200px, 16vw); opacity: 0.8; }
 
 /* Path bends between sections ------------- */
 .bend {
@@ -175,6 +293,8 @@ em { font-style: italic; }
 
 /* Patches (sections) ---------------------- */
 .patch {
+    position: relative;
+    z-index: 0;
     padding: var(--s-xl) var(--pad-x);
     scroll-margin-top: 80px;
 }
@@ -451,26 +571,39 @@ em { font-style: italic; }
     scroll-margin-top: 80px;
 }
 
-.bench-icon {
-    width: 64px;
-    height: 40px;
-    color: var(--moss);
-    margin-bottom: var(--s-sm);
-}
-
-.bench-title {
-    margin: 0 0 var(--s-sm);
-    font-family: var(--serif-display);
-    font-weight: 460;
-    font-style: italic;
-    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
-}
-
-.bench-text {
+.bench-scene {
+    position: relative;
+    width: 260px;
+    height: 220px;
     margin: 0 auto;
-    max-width: 520px;
-    color: var(--ink-soft);
+    color: var(--moss);
 }
+
+.bench-tree {
+    position: absolute;
+    left: 50%;
+    margin-left: -110px;
+    bottom: 24px;
+    width: 220px;
+}
+
+.bench-seat {
+    position: absolute;
+    left: 50%;
+    margin-left: -39px;
+    bottom: 26px;
+    width: 78px;
+    color: var(--bark);
+}
+
+.bench-grass {
+    position: absolute;
+    bottom: 24px;
+    width: 56px;
+}
+
+.bench-grass--l { left: 18px; }
+.bench-grass--r { right: 18px; }
 
 .bench-links {
     margin-top: var(--s-md);
@@ -483,6 +616,17 @@ em { font-style: italic; }
 }
 
 /* Ground (footer) ------------------------- */
+.ground-meadow {
+    line-height: 0;
+    opacity: 0.85;
+}
+
+.ground-meadow svg {
+    display: block;
+    width: 100%;
+    height: 54px;
+}
+
 .ground {
     background: var(--ink);
     color: rgba(247, 243, 231, 0.75);
@@ -494,13 +638,27 @@ em { font-style: italic; }
 
 .ground p { margin: 0; }
 
+/* Stillness for those who prefer it -------- */
+@media (prefers-reduced-motion: reduce) {
+    .sway, .entrance-branch.sway { animation: none; }
+    .petal { animation: none; opacity: 0; }
+    .butterfly { animation: none; }
+}
+
 /* Responsive ------------------------------ */
+@media (max-width: 900px) {
+    .flora--tr, .flora--tl, .flora--l { display: none; }
+    .flora--tree { opacity: 0.35; width: 130px; }
+    .butterfly { display: none; }
+}
+
 @media (max-width: 680px) {
     .gate { flex-direction: column; gap: 8px; padding-top: 12px; padding-bottom: 12px; }
     .gate-nav { gap: 18px; font-size: 15px; }
 
     .entrance { padding-top: 48px; }
     .entrance-flora { opacity: 0.4; width: 200px; right: -30px; }
+    .entrance-branch { opacity: 0.5; width: 240px; }
 
     .entry { flex-wrap: wrap; }
     .entry-meta { margin-left: 26px; }
