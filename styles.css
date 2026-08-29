@@ -494,8 +494,8 @@ em { font-style: italic; }
     height: auto;
     aspect-ratio: 29 / 36;
     object-fit: cover;
-    mix-blend-mode: multiply;
-    filter: sepia(0.12) saturate(0.92);
+    border-radius: 999px 999px 12px 12px;
+    box-shadow: 0 10px 30px rgba(44, 58, 46, .12);
 }
 
 .plate figcaption {
