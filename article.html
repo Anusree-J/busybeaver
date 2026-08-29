@@ -3,39 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log | Busy Beaver</title>
+    <title>a page from the garden · busybeaver</title>
     <meta name="description" content="">
 
-    <!-- Fonts (self-hosted) -->
     <link rel="stylesheet" href="assets/fonts/fonts.css">
-
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="articles/article-styles.css">
 </head>
 <body>
-    <div class="sheet sheet--post">
 
-        <!-- Masthead -->
-        <header class="masthead">
-            <a href="index.html" class="masthead-brand">BUSY_BEAVER / PERSONAL_SITE</a>
-            <a href="index.html#writing" class="nav-link nav-link--accent">← WRITING_INDEX</a>
-        </header>
+    <!-- Gate / masthead -->
+    <header class="gate">
+        <a href="index.html" class="gate-brand">
+            <img src="assets/beaver-logo-transparent.png" alt="" class="gate-logo">
+            <span>busybeaver</span>
+        </a>
+        <nav class="gate-nav">
+            <a href="index.html#writing" class="is-accent">← back to the garden</a>
+        </nav>
+    </header>
 
-        <!-- Article -->
-        <article class="post">
-            <header class="post-head" id="article-header">
+    <main class="leaf">
+        <article>
+            <header class="leaf-head" id="article-header">
                 <!-- Header loaded dynamically -->
             </header>
 
-            <div class="post-body" id="article-content">
-                <p class="log-loading">Loading log…</p>
+            <div class="leaf-body" id="article-content">
+                <p class="entries-loading">unfolding…</p>
             </div>
         </article>
 
-        <!-- Prev / Next -->
-        <nav class="post-nav" id="article-nav"></nav>
+        <nav class="leaf-nav" id="article-nav"></nav>
+    </main>
 
-    </div>
+    <footer class="ground">
+        <p>tended by one busy beaver · © 2026</p>
+    </footer>
 
     <script src="script.js"></script>
     <script src="blog.js"></script>

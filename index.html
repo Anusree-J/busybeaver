@@ -3,238 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busy Beaver — a working record</title>
-    <meta name="description" content="The working record of one busy beaver — how do we work, how do our bodies work, what causes illness, and how do we become our best versions?">
+    <title>busybeaver — a garden</title>
+    <meta name="description" content="A woman's search for meaning — a garden of questions about how we work, how our bodies heal, and how minds bloom. Tended by one busy beaver.">
 
-    <!-- Fonts (self-hosted) -->
     <link rel="stylesheet" href="assets/fonts/fonts.css">
-
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sheet">
 
-        <!-- Masthead -->
-        <header class="masthead">
-            <a href="#top" class="masthead-brand">BUSY_BEAVER / PERSONAL_SITE</a>
-            <nav class="masthead-nav">
-                <a href="#writing" class="nav-link">WRITING</a>
-                <a href="#builder" class="nav-link">ABOUT</a>
-                <a href="#contact" class="nav-link nav-link--accent">CONTACT</a>
-            </nav>
-        </header>
+    <!-- Gate / masthead -->
+    <header class="gate">
+        <a href="#top" class="gate-brand">
+            <img src="assets/beaver-logo-transparent.png" alt="" class="gate-logo">
+            <span>busybeaver</span>
+        </a>
+        <nav class="gate-nav">
+            <a href="#writing">writing</a>
+            <a href="#path">the path</a>
+            <a href="#plantings">plantings</a>
+            <a href="#bench" class="is-accent">say hello</a>
+        </nav>
+    </header>
 
-        <!-- Hero: playable Connections -->
-        <section class="hero" id="top">
-            <img src="assets/beaver-logo-transparent.png" alt="" class="hero-watermark" aria-hidden="true">
-            <div class="hero-inner hero-inner--game">
-                <div class="hero-copy">
-                    <h1 class="hero-title">A working record of <span class="accent">one busy beaver.</span></h1>
-                    <p class="hero-subtitle">
-                        Sixteen tiles, four groups — that's me. Find what belongs
-                        together, or skip straight to the record.
-                    </p>
-                    <div class="hero-pills">
-                        <span class="pill pill--accent">STATUS: BUILDING</span>
-                        <span class="pill">LOGS: <span id="logs-count">—</span></span>
-                    </div>
-                    <a class="hero-skip" href="#builds">SKIP TO THE RECORD ↓</a>
+    <main id="top">
+
+        <!-- Entrance -->
+        <section class="entrance">
+            <p class="overline">come in — the gate is open</p>
+            <h1 class="entrance-title">A woman's search<br>for <em>meaning.</em></h1>
+            <p class="entrance-lede">
+                Hi — I'm glad you wandered in. This is a garden of questions I keep
+                tending: <em>how do we work? How do our bodies heal? What causes
+                illness — and could we cure all of it? How do minds bloom, and how
+                do we keep them in the light?</em>
+            </p>
+            <div class="entrance-cta">
+                <a href="#growing" class="walk-link">take the walk
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 4v14m0 0l-5-5m5 5l5-5"/></svg>
+                </a>
+            </div>
+
+            <!-- gentle border of stems -->
+            <svg class="entrance-flora" viewBox="0 0 320 180" fill="none" aria-hidden="true">
+                <path d="M60 180 C 55 120, 75 95, 68 60" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M68 60 C 50 52, 44 34, 50 18 C 66 24, 74 44, 68 60 Z" fill="currentColor" opacity=".22"/>
+                <path d="M64 110 C 46 106, 36 92, 38 76 C 56 80, 66 94, 64 110 Z" fill="currentColor" opacity=".16"/>
+                <path d="M160 180 C 165 110, 145 80, 152 30" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="152" cy="24" r="7" fill="var(--bloom)" opacity=".85"/>
+                <circle cx="141" cy="19" r="6" fill="var(--bloom)" opacity=".55"/>
+                <circle cx="161" cy="15" r="6" fill="var(--bloom)" opacity=".55"/>
+                <circle cx="147" cy="9" r="6" fill="var(--bloom)" opacity=".4"/>
+                <circle cx="158" cy="6" r="5" fill="var(--bloom)" opacity=".35"/>
+                <path d="M156 92 C 176 88, 186 72, 184 56 C 166 60, 154 76, 156 92 Z" fill="currentColor" opacity=".18"/>
+                <path d="M250 180 C 248 130, 262 110, 258 78" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M258 78 C 274 70, 278 52, 272 38 C 258 46, 252 62, 258 78 Z" fill="currentColor" opacity=".2"/>
+                <path d="M254 130 C 238 124, 232 110, 236 96 C 250 102, 258 116, 254 130 Z" fill="currentColor" opacity=".14"/>
+            </svg>
+        </section>
+
+        <div class="bend" aria-hidden="true">
+            <svg viewBox="0 0 200 110" fill="none"><path d="M100 0 C 45 30, 155 75, 100 110" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/></svg>
+        </div>
+
+        <!-- Questions I'm tending -->
+        <section class="patch" id="growing">
+            <p class="overline">what's growing</p>
+            <h2 class="patch-title">Questions I'm tending</h2>
+            <div class="beds">
+                <div class="bed">
+                    <svg class="bed-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 28V14"/><path d="M16 16 C 8 16, 5 10, 6 5 C 13 6, 16 10, 16 16 Z" fill="currentColor" opacity=".2"/><path d="M16 14 C 24 14, 27 9, 26 4 C 19 5, 16 8, 16 14 Z" fill="currentColor" opacity=".3"/></svg>
+                    <h3>How do we work?</h3>
+                    <p>The machinery of us — attention, energy, habit, and why some days everything grows and some days nothing does.</p>
                 </div>
+                <div class="bed">
+                    <svg class="bed-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 27 C 7 21, 4 14, 8 9 C 11 6, 15 7, 16 11 C 17 7, 21 6, 24 9 C 28 14, 25 21, 16 27 Z" fill="currentColor" opacity=".22"/></svg>
+                    <h3>How do our bodies heal?</h3>
+                    <p>And why they falter. The quiet engineering inside us, and what it takes to repair it.</p>
+                </div>
+                <div class="bed">
+                    <svg class="bed-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="16" r="10" opacity=".8"/><path d="M16 10v6l4 3"/></svg>
+                    <h3>Could we cure all disease?</h3>
+                    <p>Medicine's ceiling feels higher than we assume. What if illness is a solvable engineering problem?</p>
+                </div>
+                <div class="bed">
+                    <svg class="bed-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="13" r="4" fill="currentColor" opacity=".25"/><circle cx="10" cy="16" r="4" fill="currentColor" opacity=".18"/><circle cx="22" cy="16" r="4" fill="currentColor" opacity=".18"/><circle cx="13" cy="21" r="4" fill="currentColor" opacity=".14"/><circle cx="19" cy="21" r="4" fill="currentColor" opacity=".14"/><path d="M16 25v4"/></svg>
+                    <h3>How do minds bloom?</h3>
+                    <p>Mental health, tended like any living thing — with patience, sunlight, and sometimes help.</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="cx" aria-label="A Connections-style puzzle about me">
-                    <div class="cx-toast" id="cx-toast" aria-live="polite"></div>
-                    <div class="cx-solved" id="cx-solved"></div>
-                    <div class="cx-grid" id="cx-grid"></div>
-                    <div class="cx-dots" id="cx-dots"></div>
-                    <div class="cx-controls" id="cx-controls">
-                        <button type="button" class="cx-btn" data-action="shuffle">SHUFFLE</button>
-                        <button type="button" class="cx-btn" data-action="deselect">DESELECT</button>
-                        <button type="button" class="cx-btn cx-btn--submit" data-action="submit">SUBMIT</button>
+        <div class="bend bend--mirror" aria-hidden="true">
+            <svg viewBox="0 0 200 110" fill="none"><path d="M100 0 C 45 30, 155 75, 100 110" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/></svg>
+        </div>
+
+        <!-- Writing -->
+        <section class="patch" id="writing">
+            <p class="overline">the perennials</p>
+            <h2 class="patch-title">Writing that comes back</h2>
+            <div class="entries" id="posts-container">
+                <p class="entries-loading">gathering pages…</p>
+            </div>
+        </section>
+
+        <div class="bend" aria-hidden="true">
+            <svg viewBox="0 0 200 110" fill="none"><path d="M100 0 C 45 30, 155 75, 100 110" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/></svg>
+        </div>
+
+        <!-- The path so far -->
+        <section class="patch" id="path">
+            <p class="overline">the path so far</p>
+            <h2 class="patch-title">Where the walk has led</h2>
+            <div class="trail">
+                <div class="trail-stop is-now">
+                    <span class="trail-marker" aria-hidden="true">
+                        <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3.2" fill="var(--bloom)"/><circle cx="10" cy="4.5" r="3" fill="var(--bloom)" opacity=".45"/><circle cx="15.5" cy="8" r="3" fill="var(--bloom)" opacity=".45"/><circle cx="13.5" cy="14.5" r="3" fill="var(--bloom)" opacity=".45"/><circle cx="6.5" cy="14.5" r="3" fill="var(--bloom)" opacity=".45"/><circle cx="4.5" cy="8" r="3" fill="var(--bloom)" opacity=".45"/></svg>
+                    </span>
+                    <div class="trail-body">
+                        <span class="trail-when">nov 2025 — now</span>
+                        <h3>Engineering Staff · Networks for Humanity</h3>
+                        <p>Building trust services — <a href="https://dedi.global/" target="_blank" rel="noopener">DeDi</a> and <a href="https://opencred.global/" target="_blank" rel="noopener">OpenCred</a>.</p>
                     </div>
-                    <div class="cx-outro" id="cx-outro" hidden>
-                        <span class="cx-outro-msg"></span>
-                        <a href="#builds" class="cx-outro-link">READ THE FULL RECORD ↓</a>
+                </div>
+                <div class="trail-stop">
+                    <span class="trail-marker" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 17 C 4 13, 2 8, 5 4 C 9 5, 11 9, 10 17 Z" fill="currentColor" opacity=".45"/></svg></span>
+                    <div class="trail-body">
+                        <span class="trail-when">2023 — 2025</span>
+                        <h3>Technical Architect · Centre for Digital Public Infrastructure</h3>
+                        <p>DPI for data, finance &amp; health. Grew from associate to architect.</p>
+                    </div>
+                </div>
+                <div class="trail-stop">
+                    <span class="trail-marker" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 17 C 4 13, 2 8, 5 4 C 9 5, 11 9, 10 17 Z" fill="currentColor" opacity=".45"/></svg></span>
+                    <div class="trail-body">
+                        <span class="trail-when">2022 — 2023</span>
+                        <h3>Founding Member · Guardians</h3>
+                        <p>India's fastest medical emergency network.</p>
+                    </div>
+                </div>
+                <div class="trail-stop">
+                    <span class="trail-marker" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 17 C 4 13, 2 8, 5 4 C 9 5, 11 9, 10 17 Z" fill="currentColor" opacity=".45"/></svg></span>
+                    <div class="trail-body">
+                        <span class="trail-when">2022</span>
+                        <h3>Product Supply Manager · Procter &amp; Gamble</h3>
+                        <p>Supply chain &amp; operations, Goa.</p>
+                    </div>
+                </div>
+                <div class="trail-stop">
+                    <span class="trail-marker" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 17 C 4 13, 2 8, 5 4 C 9 5, 11 9, 10 17 Z" fill="currentColor" opacity=".45"/></svg></span>
+                    <div class="trail-body">
+                        <span class="trail-when">2021</span>
+                        <h3>Risk Management Intern · Ernst &amp; Young</h3>
+                        <p>Risk consulting, Gurugram.</p>
+                    </div>
+                </div>
+                <div class="trail-stop">
+                    <span class="trail-marker" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="13" r="2.4" fill="currentColor" opacity=".5"/><path d="M10 11 V 4 M10 6 C 7 6, 5.5 4.5, 6 2.5 C 8.5 3, 10 4, 10 6 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg></span>
+                    <div class="trail-body">
+                        <span class="trail-when">where it began</span>
+                        <h3>B.Tech, Aerospace Engineering · IIT Madras</h3>
+                        <p>Inter-IIT, Nirmaan pre-incubation, Shaastra, Saarang — a campus full of first tries.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 01 Builds & Protocols -->
-        <section class="block" id="builds">
-            <div class="block-head">
-                <span class="block-num">01</span>
-                <span class="block-label">// BUILDS_&amp;_PROTOCOLS</span>
-                <a href="https://github.com/Anusree-J" target="_blank" rel="noopener" class="block-meta">GITHUB →</a>
+        <div class="bend bend--mirror" aria-hidden="true">
+            <svg viewBox="0 0 200 110" fill="none"><path d="M100 0 C 45 30, 155 75, 100 110" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/></svg>
+        </div>
+
+        <!-- Plantings -->
+        <section class="patch" id="plantings">
+            <p class="overline">planted in the commons</p>
+            <h2 class="patch-title">Things I've helped grow</h2>
+            <p class="patch-note">Open protocols and public infrastructure — seeds that anyone can plant.</p>
+            <div class="packets">
+                <a class="packet" href="https://opencred.global/" target="_blank" rel="noopener">
+                    <span class="packet-band"></span>
+                    <span class="packet-kind">verifiable credentials</span>
+                    <span class="packet-name">OpenCred</span>
+                    <span class="packet-desc">Open, W3C-compliant credential infrastructure for the public good.</span>
+                </a>
+                <a class="packet" href="https://dedi.global/" target="_blank" rel="noopener">
+                    <span class="packet-band"></span>
+                    <span class="packet-kind">protocol</span>
+                    <span class="packet-name">DeDi</span>
+                    <span class="packet-desc">DNS for trust — a decentralized directory for public registries.</span>
+                </a>
+                <a class="packet" href="https://becknprotocol.io/" target="_blank" rel="noopener">
+                    <span class="packet-band"></span>
+                    <span class="packet-kind">protocol</span>
+                    <span class="packet-name">Beckn</span>
+                    <span class="packet-desc">Open protocol for decentralized value discovery &amp; exchange.</span>
+                </a>
+                <a class="packet" href="https://github.com/readr-ai/readr" target="_blank" rel="noopener">
+                    <span class="packet-band"></span>
+                    <span class="packet-kind">ai · swift</span>
+                    <span class="packet-name">readr</span>
+                    <span class="packet-desc">An AI-powered ebook reader — ask books questions, press highlights into articles.</span>
+                </a>
+                <a class="packet" href="https://github.com/Anusree-J/DEG" target="_blank" rel="noopener">
+                    <span class="packet-band"></span>
+                    <span class="packet-kind">energy</span>
+                    <span class="packet-name">DEG</span>
+                    <span class="packet-desc">Beckn adapted for the energy sector — a digital energy grid.</span>
+                </a>
+                <a class="packet" href="https://github.com/Anusree-J/smart-ra" target="_blank" rel="noopener">
+                    <span class="packet-band"></span>
+                    <span class="packet-kind">health · who</span>
+                    <span class="packet-name">smart-ra</span>
+                    <span class="packet-desc">Contributions to WHO SMART tooling.</span>
+                </a>
             </div>
-            <div class="cards">
-                <a class="card" href="https://opencred.global/" target="_blank" rel="noopener">
-                    <span class="card-tag">VERIFIABLE CREDENTIALS</span>
-                    <span class="card-title">OpenCred</span>
-                    <span class="card-sub">Open, W3C-compliant verifiable-credentials infrastructure for the public good.</span>
-                    <span class="card-cta">OPENCRED.GLOBAL →</span>
+            <p class="patch-aside">More cuttings at <a href="https://github.com/Anusree-J" target="_blank" rel="noopener">github.com/Anusree-J</a>.</p>
+        </section>
+
+        <div class="bend" aria-hidden="true">
+            <svg viewBox="0 0 200 110" fill="none"><path d="M100 0 C 45 30, 155 75, 100 110" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/></svg>
+        </div>
+
+        <!-- Pressed pages -->
+        <section class="patch" id="pages">
+            <p class="overline">pressed pages</p>
+            <h2 class="patch-title">Publications</h2>
+            <div class="pressed">
+                <a class="pressed-item" href="https://cdpi.dev/case_studies/successful-design-of-open-finance-lessons-from-india-and-brazil/" target="_blank" rel="noopener">
+                    <h3>From Brasília to Bombay: the unlikely twins leading a global open finance revolution</h3>
+                    <span class="pressed-meta">Centre for Digital Public Infrastructure · 2024</span>
                 </a>
-                <a class="card" href="https://github.com/readr-ai/readr" target="_blank" rel="noopener">
-                    <span class="card-tag">AI · SWIFT</span>
-                    <span class="card-title">readr</span>
-                    <span class="card-sub">AI-powered macOS &amp; iOS ebook reader — ask books questions, turn highlights into articles.</span>
-                    <span class="card-cta">GITHUB →</span>
+                <a class="pressed-item" href="https://niti.gov.in/sites/default/files/2026-04/DPI-2047-for-Viksit-Bharat-A-Strategic-Roadmap-to-Enable-Non-linear-Inclusive-Socio-economic-Growth.pdf" target="_blank" rel="noopener">
+                    <h3>DPI@2047 for Viksit Bharat: a strategic roadmap</h3>
+                    <span class="pressed-meta">NITI Aayog</span>
                 </a>
-                <a class="card" href="https://dedi.global/" target="_blank" rel="noopener">
-                    <span class="card-tag">PROTOCOL</span>
-                    <span class="card-title">DeDi</span>
-                    <span class="card-sub">DNS for trust — a decentralized directory for public registries.</span>
-                    <span class="card-cta">DEDI.GLOBAL →</span>
+                <a class="pressed-item" href="https://energy.becknprotocol.io/wp-content/uploads/2025/01/DIGITAL_fide-deg-paper-250212-v13-1.pdf" target="_blank" rel="noopener">
+                    <h3>Digital Energy Grid: a vision for a unified energy infrastructure</h3>
+                    <span class="pressed-meta">IEA / FIDE</span>
                 </a>
-                <a class="card" href="https://becknprotocol.io/" target="_blank" rel="noopener">
-                    <span class="card-tag">PROTOCOL</span>
-                    <span class="card-title">Beckn</span>
-                    <span class="card-sub">Open protocol for decentralized value discovery &amp; exchange.</span>
-                    <span class="card-cta">BECKNPROTOCOL.IO →</span>
-                </a>
-                <a class="card" href="https://github.com/Anusree-J/DEG" target="_blank" rel="noopener">
-                    <span class="card-tag">ENERGY</span>
-                    <span class="card-title">DEG</span>
-                    <span class="card-sub">Beckn adapted for the energy sector — a digital energy grid.</span>
-                    <span class="card-cta">GITHUB →</span>
-                </a>
-                <a class="card" href="https://github.com/Anusree-J/smart-ra" target="_blank" rel="noopener">
-                    <span class="card-tag">HEALTH · WHO</span>
-                    <span class="card-title">smart-ra</span>
-                    <span class="card-sub">Contributions to WHO SMART tooling.</span>
-                    <span class="card-cta">GITHUB →</span>
-                </a>
+            </div>
+            <p class="patch-aside">
+                Tended with others, too — core architect on WHO's DPI-H working group,
+                student mentor with Avanti Fellows, operations with the National Service Scheme.
+            </p>
+        </section>
+
+        <div class="bend bend--mirror" aria-hidden="true">
+            <svg viewBox="0 0 200 110" fill="none"><path d="M100 0 C 45 30, 155 75, 100 110" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 9"/></svg>
+        </div>
+
+        <!-- The bench -->
+        <section class="bench" id="bench">
+            <svg class="bench-icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+                <path d="M8 18 H 56"/><path d="M10 18 V 34 M54 18 V 34"/><path d="M8 26 H 56"/>
+                <path d="M12 18 C 12 10, 20 6, 32 6 C 44 6, 52 10, 52 18"/>
+            </svg>
+            <h2 class="bench-title">Every garden needs a bench.</h2>
+            <p class="bench-text">
+                Sit a while. Beside me you'll usually find whatever I'm watching or
+                reading — lately <em>Shrinking</em>, <em>Dr.&nbsp;House</em>,
+                <em>About&nbsp;Time</em>, and <em>Shoe&nbsp;Dog</em>. If something
+                here made you curious, I'd love to hear from you.
+            </p>
+            <div class="bench-links">
+                <a href="https://github.com/Anusree-J" target="_blank" rel="noopener">github</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://x.com/merlumommy" target="_blank" rel="noopener">x</a>
+                <span aria-hidden="true">·</span>
+                <a href="mailto:hello@busybeaver.blog">hello@busybeaver.blog</a>
             </div>
         </section>
 
-        <!-- 02 Writing Index -->
-        <section class="block" id="writing">
-            <div class="block-head">
-                <span class="block-num">02</span>
-                <span class="block-label">// WRITING_INDEX</span>
-            </div>
-            <div class="log-list" id="posts-container">
-                <p class="log-loading">Loading logs…</p>
-            </div>
-        </section>
+    </main>
 
-        <!-- 03 Trajectory -->
-        <section class="block" id="builder">
-            <div class="block-head">
-                <span class="block-num">03</span>
-                <span class="block-label">// TRAJECTORY</span>
-                <span class="block-meta">WORK + EDUCATION</span>
-            </div>
-            <div class="timeline">
-                <div class="tl-item tl-item--now">
-                    <span class="tl-date">NOV 2025 — NOW</span>
-                    <span class="tl-axis"><span class="tl-node"></span></span>
-                    <div class="tl-body">
-                        <div class="tl-title">Engineering Staff <span class="tl-org">· Networks for Humanity</span></div>
-                        <p class="tl-sub">Building trust services —
-                            <a href="https://dedi.global/" target="_blank" rel="noopener">DEDI</a> &amp;
-                            <a href="https://opencred.global/" target="_blank" rel="noopener">OpenCred</a>.
-                        </p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-date">2023 — 2025</span>
-                    <span class="tl-axis"><span class="tl-node"></span></span>
-                    <div class="tl-body">
-                        <div class="tl-title">Technical Architect <span class="tl-org">· Centre for Digital Public Infrastructure</span></div>
-                        <p class="tl-sub">DPI for Data, Finance &amp; Health. Grew from Associate → Associate Architect → Architect.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-date">2022 — 2023</span>
-                    <span class="tl-axis"><span class="tl-node"></span></span>
-                    <div class="tl-body">
-                        <div class="tl-title">Founding Member <span class="tl-org">· Guardians</span></div>
-                        <p class="tl-sub">India's fastest medical emergency network. Gurugram.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-date">2022</span>
-                    <span class="tl-axis"><span class="tl-node"></span></span>
-                    <div class="tl-body">
-                        <div class="tl-title">Product Supply Manager <span class="tl-org">· Procter &amp; Gamble</span></div>
-                        <p class="tl-sub">Supply chain &amp; operations. Goa.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-date">2021</span>
-                    <span class="tl-axis"><span class="tl-node"></span></span>
-                    <div class="tl-body">
-                        <div class="tl-title">Risk Management Intern <span class="tl-org">· Ernst &amp; Young</span></div>
-                        <p class="tl-sub">Risk consulting. Gurugram.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <span class="tl-date">B.TECH</span>
-                    <span class="tl-axis"><span class="tl-node"></span></span>
-                    <div class="tl-body">
-                        <div class="tl-title">Aerospace Engineering <span class="tl-org">· IIT Madras</span></div>
-                        <p class="tl-sub">Inter-IIT tech fest · Nirmaan pre-incubation cell · Shaastra · Saarang · placement &amp; hostel council.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 04 Publications -->
-        <section class="block" id="publications">
-            <div class="block-head">
-                <span class="block-num">04</span>
-                <span class="block-label">// PUBLICATIONS</span>
-            </div>
-            <div class="log-list">
-                <a class="log-row log-row--ref" href="https://cdpi.dev/case_studies/successful-design-of-open-finance-lessons-from-india-and-brazil/" target="_blank" rel="noopener">
-                    <span class="log-num">REF_03</span>
-                    <span class="log-title">From Brasília to Bombay: the unlikely twins leading a global open finance revolution</span>
-                    <span class="log-date">CDPI · 2024</span>
-                </a>
-                <a class="log-row log-row--ref" href="https://niti.gov.in/sites/default/files/2026-04/DPI-2047-for-Viksit-Bharat-A-Strategic-Roadmap-to-Enable-Non-linear-Inclusive-Socio-economic-Growth.pdf" target="_blank" rel="noopener">
-                    <span class="log-num">REF_02</span>
-                    <span class="log-title">DPI@2047 for Viksit Bharat: a strategic roadmap</span>
-                    <span class="log-date">NITI AAYOG</span>
-                </a>
-                <a class="log-row log-row--ref" href="https://energy.becknprotocol.io/wp-content/uploads/2025/01/DIGITAL_fide-deg-paper-250212-v13-1.pdf" target="_blank" rel="noopener">
-                    <span class="log-num">REF_01</span>
-                    <span class="log-title">Digital Energy Grid: a vision for a unified energy infrastructure</span>
-                    <span class="log-date">IEA / FIDE</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- 05 Volunteering -->
-        <section class="block" id="volunteering">
-            <div class="block-head">
-                <span class="block-num">05</span>
-                <span class="block-label">// VOLUNTEERING</span>
-            </div>
-            <div class="chips">
-                <span class="chip"><span class="chip-role">Core Architect, DPI-H working group</span> — World Health Organization</span>
-                <span class="chip"><span class="chip-role">Student Mentor</span> — Avanti Fellows</span>
-                <span class="chip"><span class="chip-role">Operations Coordinator</span> — National Service Scheme</span>
-            </div>
-        </section>
-
-        <!-- Colophon / Contact -->
-        <footer class="colophon" id="contact">
-            <span class="colophon-eof">EOF · © 2026</span>
-            <div class="colophon-links">
-                <a href="https://github.com/Anusree-J" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub" class="social">
-                    <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-                </a>
-                <a href="https://x.com/merlumommy" target="_blank" rel="noopener" title="X" aria-label="X" class="social">
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.6 1.75h2.25L9.93 7.37 15.7 14.9h-4.53L7.63 10.3l-4.06 4.6H1.32l5.25-6.01L1.05 1.75h4.64l3.2 4.23 3.71-4.23zm-.79 11.8h1.25L4.99 3.02H3.65l8.16 10.53z"/></svg>
-                </a>
-                <a href="mailto:hello@busybeaver.blog" class="colophon-email">hello@busybeaver.blog</a>
-            </div>
-        </footer>
-
-    </div>
+    <footer class="ground">
+        <p>tended by one busy beaver · © 2026</p>
+    </footer>
 
     <script src="script.js"></script>
     <script src="blog.js"></script>
-    <script src="connections.js"></script>
 </body>
 </html>

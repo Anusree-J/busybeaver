@@ -113,10 +113,7 @@ async function fetchAllPosts() {
     return posts;
 }
 
-// Zero-padded log number, newest post = highest
-function logNumber(total, index) {
-    return String(total - index).padStart(3, '0');
-}
+const LEAF_SVG = `<svg class="entry-leaf" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 18 C 3 13, 1 7, 4.5 2.5 C 10 4, 12.5 9, 10 18 Z"/></svg>`;
 
 // Load writing index for homepage
 async function loadPostsList() {
@@ -125,22 +122,18 @@ async function loadPostsList() {
 
     try {
         const posts = await fetchAllPosts();
-        const total = posts.length;
 
-        const countEl = document.getElementById('logs-count');
-        if (countEl) countEl.textContent = String(total).padStart(2, '0');
-
-        container.innerHTML = posts.map((post, i) => `
-            <a href="article.html?post=${post.slug}" class="log-row">
-                <span class="log-num">${logNumber(total, i)}</span>
-                <span class="log-title">${post.title}<span class="log-cat">${post.category}</span></span>
-                <span class="log-date">${formatLogDate(post.date)}</span>
+        container.innerHTML = posts.map(post => `
+            <a href="article.html?post=${post.slug}" class="entry">
+                ${LEAF_SVG}
+                <span class="entry-title">${post.title}</span>
+                <span class="entry-meta">${gardenDate(post.date)}</span>
             </a>
         `).join('');
 
     } catch (error) {
         console.error('Error loading posts:', error);
-        container.innerHTML = '<p class="log-loading">No logs available yet.</p>';
+        container.innerHTML = '<p class="entries-loading">nothing has come up yet.</p>';
     }
 }
 
@@ -159,9 +152,8 @@ async function loadArticle() {
     }
 
     try {
-        // Load the full index so we can number logs and build prev/next nav
+        // Load the full index for prev/next navigation
         const posts = await fetchAllPosts();
-        const total = posts.length;
         const index = posts.findIndex(p => p.slug === slug);
         if (index === -1) throw new Error('Post not found');
 
@@ -170,24 +162,17 @@ async function loadArticle() {
             await (await fetch(`posts/${slug}.md`)).text()
         );
 
-        const logId = logNumber(total, index);
-
         // Update page title + meta description
-        document.title = `LOG_${logId} · ${post.title} | Busy Beaver`;
+        document.title = `${post.title} · busybeaver`;
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.content = post.description;
 
         // Render header
         if (headerContainer) {
             headerContainer.innerHTML = `
-                <div class="post-meta">
-                    <span class="post-log">LOG_${logId}</span>
-                    <span>${post.category}</span>
-                    <span>${formatLogDate(post.date)}</span>
-                    <span>${calculateReadingTime(content).replace(' read', '').toUpperCase()}</span>
-                </div>
-                <h1 class="post-title">${post.title}</h1>
-                ${post.description ? `<p class="post-subtitle">${post.description}</p>` : ''}
+                <p class="overline">${post.category.toLowerCase()} · ${gardenDate(post.date)} · ${calculateReadingTime(content)}</p>
+                <h1 class="leaf-title">${post.title}</h1>
+                ${post.description ? `<p class="leaf-subtitle">${post.description}</p>` : ''}
             `;
         }
 
@@ -201,28 +186,26 @@ async function loadArticle() {
             const newer = posts[index - 1];
             const parts = [];
             parts.push(older
-                ? `<a href="article.html?post=${older.slug}">← LOG_${logNumber(total, index + 1)}</a>`
+                ? `<a href="article.html?post=${older.slug}">← ${older.title}</a>`
                 : `<span></span>`);
             if (newer) {
-                parts.push(`<a class="is-next" href="article.html?post=${newer.slug}">LOG_${logNumber(total, index - 1)} →</a>`);
+                parts.push(`<a class="is-next" href="article.html?post=${newer.slug}">${newer.title} →</a>`);
             }
             navEl.innerHTML = parts.join('');
         }
 
     } catch (error) {
         console.error('Error loading article:', error);
-        container.innerHTML = '<p class="log-loading">Log not found.</p>';
+        container.innerHTML = '<p class="entries-loading">This page seems to have blown away.</p>';
     }
 }
 
-// Format a date as YYYY-MM for log listings
-function formatLogDate(dateStr) {
-    if (!dateStr || dateStr === 'Coming Soon') return 'DRAFT';
+// Format a date as "march 2026" for garden listings
+function gardenDate(dateStr) {
+    if (!dateStr || dateStr === 'Coming Soon') return 'still growing';
     const date = new Date(dateStr);
-    if (isNaN(date)) return String(dateStr);
-    const y = date.getFullYear();
-    const m = String(date.getMonth() + 1).padStart(2, '0');
-    return `${y}-${m}`;
+    if (isNaN(date)) return String(dateStr).toLowerCase();
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toLowerCase();
 }
 
 // Initialize on page load
