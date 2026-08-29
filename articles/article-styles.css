@@ -1,163 +1,137 @@
 /* ========================================
-   Busy Beaver — Post page (blueprint)
+   busybeaver — a page from the garden
    ======================================== */
 
-.sheet--post {
-    max-width: 760px;
-    --pad-x: clamp(24px, 6vw, 64px);
+.leaf {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 6vw, 48px);
 }
 
-/* Post header ---------------------------- */
-.post-head {
-    padding: var(--s-2xl) var(--pad-x) var(--s-lg);
-    border-bottom: 1px dashed var(--dash);
+/* Header --------------------------------- */
+.leaf-head {
+    padding: clamp(48px, 8vh, 80px) 0 var(--s-md);
+    border-bottom: 1px solid var(--hairline);
 }
 
-.post-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--mono-gray);
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
-.post-log { color: var(--teal); }
-
-.post-title {
+.leaf-title {
     margin: 0;
-    font-size: clamp(1.7rem, 4.6vw, 2.25rem);
-    line-height: 1.16;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-family: var(--serif-display);
+    font-weight: 460;
+    font-size: clamp(2rem, 5.4vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.012em;
 }
 
-.post-subtitle {
-    margin: 14px 0 0;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--muted);
-}
-
-/* Post body ------------------------------ */
-.post-body {
-    padding: var(--s-lg) var(--pad-x) var(--s-2xl);
-    font-size: 15.5px;
-    line-height: 1.85;
+.leaf-subtitle {
+    margin: var(--s-sm) 0 0;
+    font-style: italic;
+    font-size: 18px;
     color: var(--ink-soft);
 }
 
-.post-body p { margin: 0 0 18px; }
-.post-body p:last-child { margin-bottom: 0; }
+/* Body ----------------------------------- */
+.leaf-body {
+    padding: var(--s-lg) 0 var(--s-xl);
+    font-size: 17.5px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+}
 
-.post-body h1,
-.post-body h2,
-.post-body h3 {
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
+.leaf-body p { margin: 0 0 20px; }
+.leaf-body p:last-child { margin-bottom: 0; }
+
+.leaf-body h1,
+.leaf-body h2,
+.leaf-body h3 {
+    font-family: var(--serif-display);
+    font-weight: 520;
+    line-height: 1.2;
     color: var(--ink);
-    margin: 34px 0 14px;
+    margin: 40px 0 14px;
 }
 
-.post-body h1 { font-size: 1.65rem; }
-.post-body h2 { font-size: 1.35rem; }
-.post-body h3 { font-size: 1.12rem; }
+.leaf-body h1 { font-size: 1.7rem; }
+.leaf-body h2 { font-size: 1.45rem; }
+.leaf-body h3 { font-size: 1.2rem; }
 
-.post-body a {
-    color: var(--teal);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
-}
+.leaf-body strong { color: var(--ink); }
 
-.post-body strong { font-weight: 700; color: var(--ink); }
-
-.post-body em { font-style: italic; }
-
-.post-body img {
+.leaf-body img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    margin: 24px 0;
+    border-radius: 14px;
+    margin: 26px 0;
     display: block;
 }
 
-.post-body hr {
+.leaf-body hr {
     border: none;
-    border-top: 1px dashed var(--dash);
-    margin: 34px 0;
+    text-align: center;
+    margin: 40px 0;
 }
 
-.post-body ul {
-    margin: 0 0 18px;
-    padding-left: 1.2rem;
+.leaf-body hr::after {
+    content: "❦";
+    color: var(--sage);
+    font-size: 18px;
 }
 
-.post-body li { margin-bottom: 8px; }
+.leaf-body ul { margin: 0 0 20px; padding-left: 1.3rem; }
+.leaf-body li { margin-bottom: 8px; }
 
-/* Blockquote → schematic callout */
-.post-body blockquote {
-    border: 1px dashed var(--teal);
-    border-radius: 10px;
-    padding: 18px 22px;
-    margin: 26px 0;
-    font-family: var(--font-mono);
-    font-size: 13.5px;
-    line-height: 1.65;
+.leaf-body blockquote {
+    margin: 28px 0;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--bloom);
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-size: 18.5px;
     color: var(--ink);
 }
 
-.post-body blockquote p { margin: 0; }
+.leaf-body blockquote p { margin: 0; }
 
-/* Inline + block code */
-.post-body code {
-    font-family: var(--font-mono);
-    font-size: 0.86em;
-    background: rgba(0, 0, 0, 0.05);
+.leaf-body code {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.85em;
+    background: rgba(44, 58, 46, 0.07);
     padding: 2px 6px;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
-.post-body pre {
-    background: #1c1e1d;
-    color: #e8e6df;
+.leaf-body pre {
+    background: var(--ink);
+    color: #eee9da;
     padding: 18px 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow-x: auto;
-    margin: 24px 0;
-    font-size: 13.5px;
+    margin: 26px 0;
+    font-size: 14px;
     line-height: 1.6;
 }
 
-.post-body pre code {
-    background: none;
-    padding: 0;
-    color: inherit;
-}
+.leaf-body pre code { background: none; padding: 0; color: inherit; }
 
-/* Prev / Next ---------------------------- */
-.post-nav {
+/* Prev / next ----------------------------- */
+.leaf-nav {
     display: flex;
     justify-content: space-between;
     gap: var(--s-sm);
-    padding: var(--s-sm) var(--pad-x);
-    border-top: 1px dashed var(--dash);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--muted);
+    padding: var(--s-sm) 0 var(--s-xl);
+    border-top: 1px solid var(--hairline);
+    font-style: italic;
+    font-size: 15.5px;
 }
 
-.post-nav a {
-    color: var(--muted);
+.leaf-nav a {
     text-decoration: none;
+    color: var(--moss);
+    max-width: 46%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
-    transition: color 0.18s ease;
 }
 
-.post-nav a:hover { color: var(--teal); }
-.post-nav a.is-next { color: var(--teal); margin-left: auto; }
-.post-nav a.is-next:hover { opacity: 0.75; }
+.leaf-nav a:hover { color: var(--bloom); }
+.leaf-nav a.is-next { margin-left: auto; }
