@@ -24,20 +24,37 @@
             </nav>
         </header>
 
-        <!-- Hero -->
+        <!-- Hero: playable Connections -->
         <section class="hero" id="top">
             <img src="assets/beaver-logo-transparent.png" alt="" class="hero-watermark" aria-hidden="true">
-            <div class="hero-inner">
-                <h1 class="hero-title">A working record of <span class="accent">one busy beaver.</span></h1>
-                <p class="hero-subtitle">
-                    Currently circling the same questions — how do we work?
-                    How do our bodies work? What causes illness, and could we
-                    cure all of it? How do we become our best versions, and
-                    take care of our minds along the way?
-                </p>
-                <div class="hero-pills">
-                    <span class="pill pill--accent">STATUS: BUILDING</span>
-                    <span class="pill">LOGS: <span id="logs-count">—</span></span>
+            <div class="hero-inner hero-inner--game">
+                <div class="hero-copy">
+                    <h1 class="hero-title">A working record of <span class="accent">one busy beaver.</span></h1>
+                    <p class="hero-subtitle">
+                        Sixteen tiles, four groups — that's me. Find what belongs
+                        together, or skip straight to the record.
+                    </p>
+                    <div class="hero-pills">
+                        <span class="pill pill--accent">STATUS: BUILDING</span>
+                        <span class="pill">LOGS: <span id="logs-count">—</span></span>
+                    </div>
+                    <a class="hero-skip" href="#builds">SKIP TO THE RECORD ↓</a>
+                </div>
+
+                <div class="cx" aria-label="A Connections-style puzzle about me">
+                    <div class="cx-toast" id="cx-toast" aria-live="polite"></div>
+                    <div class="cx-solved" id="cx-solved"></div>
+                    <div class="cx-grid" id="cx-grid"></div>
+                    <div class="cx-dots" id="cx-dots"></div>
+                    <div class="cx-controls" id="cx-controls">
+                        <button type="button" class="cx-btn" data-action="shuffle">SHUFFLE</button>
+                        <button type="button" class="cx-btn" data-action="deselect">DESELECT</button>
+                        <button type="button" class="cx-btn cx-btn--submit" data-action="submit">SUBMIT</button>
+                    </div>
+                    <div class="cx-outro" id="cx-outro" hidden>
+                        <span class="cx-outro-msg"></span>
+                        <a href="#builds" class="cx-outro-link">READ THE FULL RECORD ↓</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -218,5 +235,6 @@
 
     <script src="script.js"></script>
     <script src="blog.js"></script>
+    <script src="connections.js"></script>
 </body>
 </html>
