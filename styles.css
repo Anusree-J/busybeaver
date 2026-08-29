@@ -12,7 +12,6 @@
     --bloom: #c26d4f;
     --marigold: #d9a441;
     --bark: #8a6f52;
-    --petalc: #d9a0a0;
     --hairline: rgba(44, 58, 46, 0.14);
 
     --serif-display: 'Fraunces', Georgia, serif;
@@ -154,159 +153,6 @@ em { font-style: italic; }
 }
 
 .walk-link:hover { color: var(--bloom); gap: 12px; }
-
-/* Botanical line work ---------------------- */
-.entrance-branch path, .entrance-branch ellipse,
-.entrance-flora path, .entrance-flora ellipse,
-.meadow path, .meadow ellipse,
-.flora path, .flora ellipse,
-.bench-spray path, .bench-spray ellipse,
-.bench-grass path, .bench-grass ellipse,
-.ground-meadow path, .ground-meadow ellipse,
-.butterfly path {
-    stroke: currentColor;
-    stroke-width: 1.1;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: currentColor;
-    fill-opacity: 0.09;
-}
-
-.ln { fill: none !important; }
-
-.accent { color: var(--bloom); }
-.accent2 { color: var(--marigold); }
-.accent ellipse, .accent2 ellipse { fill-opacity: 0.12; }
-
-.dotc { fill: currentColor; fill-opacity: 0.6; stroke: none !important; }
-.tipfill { fill: currentColor; fill-opacity: 0.35; stroke: none !important; }
-
-.entrance-flora {
-    position: absolute;
-    right: calc(var(--pad-x) * 0.8);
-    bottom: 26px;
-    width: min(280px, 30vw);
-    color: var(--moss);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.entrance-branch {
-    position: absolute;
-    top: -8px;
-    right: 0;
-    width: min(460px, 38vw);
-    color: var(--moss);
-    pointer-events: none;
-    z-index: -1;
-    transform-origin: top right;
-}
-
-/* Meadow at the hero's foot ---------------- */
-.meadow {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -4px;
-    width: 100%;
-    pointer-events: none;
-    z-index: -1;
-    transform-origin: bottom center;
-}
-
-.meadow--back { opacity: 0.4; height: 100px; color: var(--sage); }
-.meadow--front { opacity: 0.7; height: 84px; color: var(--moss); }
-
-/* Drifting petals -------------------------- */
-.petals {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.petal {
-    position: absolute;
-    top: -24px;
-    width: 7px;
-    height: 11px;
-    background: var(--petalc);
-    border-radius: 62% 38% 58% 42% / 48% 55% 45% 52%;
-    opacity: 0;
-    animation: petalFall 13s linear infinite;
-}
-
-.petal:nth-child(1) { left: 12%; animation-delay: 0s; }
-.petal:nth-child(2) { left: 30%; animation-delay: 4.5s; animation-duration: 16s; }
-.petal:nth-child(3) { left: 48%; animation-delay: 9s; }
-.petal:nth-child(4) { left: 62%; animation-delay: 2s; animation-duration: 15s; background: var(--bloom); }
-.petal:nth-child(5) { left: 78%; animation-delay: 6.5s; }
-.petal:nth-child(6) { left: 90%; animation-delay: 11s; animation-duration: 17s; background: var(--marigold); }
-
-@keyframes petalFall {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-    6% { opacity: 0.55; }
-    50% { transform: translate(-26px, 46vh) rotate(150deg); opacity: 0.5; }
-    92% { opacity: 0.35; }
-    100% { transform: translate(14px, 92vh) rotate(310deg); opacity: 0; }
-}
-
-/* Butterfly -------------------------------- */
-.butterfly {
-    position: absolute;
-    top: 22%;
-    right: min(30%, 420px);
-    width: 26px;
-    color: var(--bloom);
-    opacity: 0.75;
-    pointer-events: none;
-    animation: flutter 16s ease-in-out infinite;
-}
-
-@keyframes flutter {
-    0% { transform: translate(0, 0) rotate(-6deg); }
-    20% { transform: translate(-46px, 26px) rotate(7deg); }
-    45% { transform: translate(-100px, -8px) rotate(-8deg); }
-    65% { transform: translate(-58px, 40px) rotate(6deg); }
-    85% { transform: translate(-12px, 12px) rotate(-4deg); }
-    100% { transform: translate(0, 0) rotate(-6deg); }
-}
-
-/* Wind ------------------------------------- */
-.sway {
-    animation: sway 6.5s ease-in-out infinite alternate;
-    transform-origin: bottom center;
-}
-
-.sway--slow { animation-duration: 9.5s; }
-.sway--late { animation-delay: -3.5s; animation-duration: 8s; }
-
-@keyframes sway {
-    from { transform: rotate(-1.3deg); }
-    to { transform: rotate(1.5deg); }
-}
-
-/* branch hangs from above: pivot at its anchor */
-.entrance-branch.sway { animation-name: swayBranch; }
-
-@keyframes swayBranch {
-    from { transform: rotate(-0.8deg); }
-    to { transform: rotate(1deg); }
-}
-
-/* Scattered flora -------------------------- */
-.flora {
-    position: absolute;
-    color: var(--moss);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.flora--tr { top: var(--s-lg); right: calc(var(--pad-x) * 0.35); width: 80px; opacity: 0.8; }
-.flora--tl { top: var(--s-lg); left: calc(var(--pad-x) * 0.3); width: 108px; opacity: 0.75; }
-.flora--l { bottom: var(--s-lg); left: calc(var(--pad-x) * 0.3); width: 64px; opacity: 0.85; }
-.flora--tree { right: calc(var(--pad-x) * 0.15); bottom: var(--s-md); width: min(190px, 15vw); opacity: 0.9; }
 
 /* Path bends between sections ------------- */
 .bend {
@@ -601,39 +447,17 @@ em { font-style: italic; }
 }
 
 .bench-scene {
-    position: relative;
-    width: 260px;
-    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin: 0 auto;
-    color: var(--moss);
-}
-
-.bench-spray {
-    position: absolute;
-    left: 50%;
-    margin-left: -130px;
-    bottom: 22px;
-    width: 260px;
-    color: var(--moss);
 }
 
 .bench-seat {
-    position: absolute;
-    left: 50%;
-    margin-left: -39px;
-    bottom: 26px;
-    width: 78px;
+    width: 74px;
     color: var(--bark);
 }
-
-.bench-grass {
-    position: absolute;
-    bottom: 24px;
-    width: 56px;
-}
-
-.bench-grass--l { left: 18px; }
-.bench-grass--r { right: 18px; }
 
 .bench-links {
     margin-top: var(--s-md);
@@ -646,18 +470,6 @@ em { font-style: italic; }
 }
 
 /* Ground (footer) ------------------------- */
-.ground-meadow {
-    line-height: 0;
-    opacity: 0.8;
-    color: var(--ink);
-}
-
-.ground-meadow svg {
-    display: block;
-    width: 100%;
-    height: 54px;
-}
-
 .ground {
     background: var(--ink);
     color: rgba(247, 243, 231, 0.75);
@@ -669,27 +481,74 @@ em { font-style: italic; }
 
 .ground p { margin: 0; }
 
-/* Stillness for those who prefer it -------- */
-@media (prefers-reduced-motion: reduce) {
-    .sway, .entrance-branch.sway { animation: none; }
-    .petal { animation: none; opacity: 0; }
-    .butterfly { animation: none; }
+
+/* Botanical plates (vintage prints) -------- */
+.plate {
+    margin: 0;
+    pointer-events: none;
+}
+
+.plate img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 29 / 36;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+    filter: sepia(0.12) saturate(0.92);
+}
+
+.plate figcaption {
+    margin-top: 6px;
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--sage);
+    letter-spacing: 0.01em;
+}
+
+.plate--hero {
+    position: absolute;
+    right: calc(var(--pad-x) * 0.55);
+    top: 50%;
+    transform: translateY(-50%) rotate(0.6deg);
+    width: min(340px, 28vw);
+    z-index: -1;
+}
+
+.plate--margin {
+    position: absolute;
+    width: min(210px, calc((100vw - 1030px) / 2));
+    z-index: -1;
+}
+
+.plate--r { right: 20px; top: var(--s-lg); }
+.plate--low { top: auto; bottom: 120px; }
+
+.plate--bench {
+    width: 190px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1280px) {
+    .plate--margin { display: none; }
+}
+
+@media (max-width: 760px) {
+    .plate--hero {
+        position: static;
+        transform: none;
+        width: min(260px, 70vw);
+        margin: var(--s-md) auto 0;
+    }
 }
 
 /* Responsive ------------------------------ */
-@media (max-width: 900px) {
-    .flora--tr, .flora--tl, .flora--l { display: none; }
-    .flora--tree { opacity: 0.35; width: 130px; }
-    .butterfly { display: none; }
-}
-
 @media (max-width: 680px) {
     .gate { flex-direction: column; gap: 8px; padding-top: 12px; padding-bottom: 12px; }
     .gate-nav { gap: 18px; font-size: 15px; }
 
     .entrance { padding-top: 48px; }
-    .entrance-flora { opacity: 0.4; width: 200px; right: -30px; }
-    .entrance-branch { opacity: 0.5; width: 240px; }
 
     .entry { flex-wrap: wrap; }
     .entry-meta { margin-left: 26px; }
