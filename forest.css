@@ -765,7 +765,6 @@ em {
   }
   .hero-intro {
     font-size: 19px;
-    max-width: 230px;
   }
   .section-wrap {
     padding-left: 35px;
@@ -794,6 +793,12 @@ em {
   }
   .path-section {
     gap: 40px;
+  }
+  .path-intro img {
+    width: 85%;
+    max-width: 210px;
+    height: auto;
+    transform: rotate(-6deg);
   }
   .hello {
     padding: 110px 35px 90px;
