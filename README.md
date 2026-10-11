@@ -2,6 +2,8 @@
 
 A static personal website hosted by GitHub Pages at https://busybeaver.life/.
 
+The forest-and-flowers visual brief is recorded in [DESIGN.md](DESIGN.md).
+
 ## Local preview and checks
 
 Use Node 24 or newer. No build is required for publication.
