@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="forest.css" />
     <link rel="preload" as="image" href="assets/forest/bluebell-woodland.jpg" />
   </head>
-  <body>
+  <body class="woodland-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="index.html"
@@ -36,15 +36,24 @@
     </header>
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="woodland-window">
+          <img
+            class="hero-photo"
+            src="assets/forest/bluebell-woodland.jpg"
+            alt="A woodland path winding between trees and a carpet of bluebell flowers"
+            fetchpriority="high"
+            width="2000"
+            height="1333"
+          />
+          <span class="woodland-caption">a little room to wander</span>
+        </div>
         <img
-          class="hero-photo"
-          src="assets/forest/bluebell-woodland.jpg"
-          alt="A woodland path winding between trees and a carpet of bluebell flowers"
-          fetchpriority="high"
-          width="2000"
-          height="1333"
+          class="hero-blooms"
+          src="assets/botany/chamomile.jpg"
+          alt=""
+          width="960"
+          height="1200"
         />
-        <div class="hero-shade"></div>
         <div class="hero-copy">
           <p class="eyebrow">Come in. The gate is open.</p>
           <h1 id="hero-title">A woman’s search<br />for <em>meaning.</em></h1>
@@ -58,6 +67,17 @@
           ><span>Building. Wondering. Growing.</span>
         </div>
       </section>
+
+      <div class="trail-bend" aria-hidden="true">
+        <svg
+          viewBox="0 0 1000 160"
+          preserveAspectRatio="none"
+          focusable="false"
+        >
+          <path d="M700 0 C700 75 290 25 290 95 S450 115 450 160" />
+        </svg>
+        <span>keep wandering</span>
+      </div>
       <section
         class="clearing section-wrap"
         id="writing"
@@ -65,7 +85,7 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">01 / A place to pause</p>
+            <p class="eyebrow">A place to pause</p>
             <h2 id="writing-title">Notes from the walk.</h2>
           </div>
           <p>On the things I’m building, <br />and the things that build me.</p>
@@ -85,6 +105,16 @@
           </p></noscript
         >
       </section>
+
+      <div class="trail-bend trail-return" aria-hidden="true">
+        <svg
+          viewBox="0 0 1000 160"
+          preserveAspectRatio="none"
+          focusable="false"
+        >
+          <path d="M700 0 C700 75 290 25 290 95 S450 115 450 160" />
+        </svg>
+      </div>
       <section
         class="questions section-wrap"
         id="growing"
@@ -92,7 +122,7 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">02 / Along the way</p>
+            <p class="eyebrow">Along the way</p>
             <h2 id="questions-title">Questions I’m tending.</h2>
           </div>
           <p>Flowers grow where <br />the light gets through.</p>
@@ -168,7 +198,7 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">03 / Planted in the commons</p>
+            <p class="eyebrow">Planted in the commons</p>
             <h2 id="work-title">Things I’ve helped grow.</h2>
           </div>
           <p>Seeds anyone can grow.</p>
@@ -254,7 +284,7 @@
         aria-labelledby="path-title"
       >
         <div class="path-intro">
-          <p class="eyebrow">04 / The path so far</p>
+          <p class="eyebrow">The path so far</p>
           <h2 id="path-title">Where the walk<br />has led.</h2>
           <img
             src="assets/botany/chamomile.jpg"
@@ -317,6 +347,16 @@
           </li>
         </ol>
       </section>
+
+      <div class="trail-bend" aria-hidden="true">
+        <svg
+          viewBox="0 0 1000 160"
+          preserveAspectRatio="none"
+          focusable="false"
+        >
+          <path d="M700 0 C700 75 290 25 290 95 S450 115 450 160" />
+        </svg>
+      </div>
       <section
         class="publications section-wrap"
         id="pressed"
@@ -324,7 +364,7 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">05 / Pressed pages</p>
+            <p class="eyebrow">Pressed pages</p>
             <h2 id="pub-title">Publications.</h2>
           </div>
         </div>
