@@ -1,47 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a page from the garden · busybeaver</title>
-    <meta name="description" content="">
-
-    <link rel="stylesheet" href="assets/fonts/fonts.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="articles/article-styles.css">
-</head>
-<body>
-
-    <!-- Gate / masthead -->
-    <header class="gate">
-        <a href="index.html" class="gate-brand">
-            <img src="assets/beaver-logo-transparent.png" alt="" class="gate-logo">
-            <span>busybeaver</span>
-        </a>
-        <nav class="gate-nav">
-            <a href="index.html#writing" class="is-accent">← back to the garden</a>
-        </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A page from the walk · busybeaver</title>
+    <meta
+      name="description"
+      content="Notes from the walk by Anusree Jayakrishnan."
+    />
+    <link rel="icon" href="assets/beaver-logo-transparent.png" />
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="forest.css" />
+  </head>
+  <body class="reading-page">
+    <a class="skip-link" href="#article-content">Skip to article</a>
+    <header class="reading-header">
+      <a class="brand" href="index.html"
+        ><img
+          src="assets/beaver-logo-transparent.png"
+          alt=""
+          width="34"
+          height="34"
+        /><span>busybeaver</span></a
+      ><a class="text-link" href="index.html#writing">← Back to the walk</a>
     </header>
-
     <main class="leaf">
-        <article>
-            <header class="leaf-head" id="article-header">
-                <!-- Header loaded dynamically -->
-            </header>
-
-            <div class="leaf-body" id="article-content">
-                <p class="entries-loading">unfolding…</p>
-            </div>
-        </article>
-
-        <nav class="leaf-nav" id="article-nav"></nav>
+      <article>
+        <header class="leaf-head" id="article-header"></header>
+        <div
+          class="leaf-body"
+          id="article-content"
+          aria-live="polite"
+          aria-busy="true"
+        >
+          <p class="status">Opening the notebook…</p>
+        </div>
+      </article>
+      <noscript
+        ><p>
+          This reader needs JavaScript. You can also
+          <a href="posts/why-im-building-sunny.md"
+            >read the Sunny essay as plain text</a
+          >.
+        </p></noscript
+      >
+      <nav class="leaf-nav" id="article-nav" aria-label="More writing"></nav>
     </main>
-
-    <footer class="ground">
-        <p>tended by one busy beaver · © 2026</p>
+    <footer class="reading-footer">
+      <img
+        src="assets/botany/chamomile.jpg"
+        alt=""
+        width="96"
+        height="120"
+        loading="lazy"
+      />
+      <p>A little further along the path.</p>
+      <a href="index.html#writing">Explore the notebook ↗</a>
     </footer>
-
-    <script src="script.js"></script>
-    <script src="blog.js"></script>
-</body>
+    <script src="blog.js" defer></script>
+  </body>
 </html>
