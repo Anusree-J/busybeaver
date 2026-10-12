@@ -1,19 +1,23 @@
 # Design direction
 
-The user's brief: “it's a walk in the forest, flowers, trees etc — all real looking as possible.” Flowers are an explicit part of the experience, including flowers growing among the trees.
+The user's brief: “it's a walk in the forest, flowers, trees etc — all real looking as possible.” Flowers are an explicit part of the experience.
 
-- Use genuine woodland photography, visible flowers and natural greenery for the main landscape scenes. Credit new photographs and serve them locally.
-- Preserve the flower photographs alongside the questions; flowers should remain prominent, not become a tiny decorative accent.
-- Keep the experience calm and readable: deep green ink, warm paper surfaces for longer text, restrained serif typography and sufficient contrast over photographs.
-- Preserve the forest-walk structure and the existing biographical/project/publication content when making visual changes.
-- Keep navigation usable on mobile and with a keyboard. Respect reduced motion; avoid forced animation or sound.
+## Approved woodland scene
 
-## Accepted revision after visual feedback
+The user approved the full woodland scene preview on 12 October 2026 after rejecting earlier dark banners and shaped photo frames.
 
-The user rejected the dark, generic photo-banner treatment and approved a lighter woodland scene. Apply these constraints to future changes:
+- Keep the approved light woodland artwork filling the opening screen, with trees and flowers framing the title. Use the dedicated portrait scene on mobile.
+- Keep dark, readable serif text in the scene's light central clearing. Avoid dark overlays, white text on busy images and framed photo tiles.
+- Preserve prominent, unboxed flower photographs beside the questions.
+- Serve images and fonts locally. Distinguish generated scene artwork from photography in image credits.
+- Preserve the approved article and substantive project, career and publication content, applying explicit user corrections such as replacing Ernst & Young with Skyroot.
+- Keep navigation usable on mobile and with a keyboard. Respect reduced motion; avoid forced animation or sound. Check narrow browser panels as well as desktop and mobile.
 
-- No full-width dark photo banners or white text over a busy forest image.
-- Keep the introduction on warm paper with restrained type; frame woodland photography as an opening into the trees.
-- Flowers are unboxed, prominent plants among the content, not a row of rectangular image tiles.
-- Use a quiet winding trail and asymmetric spacing to connect the reading stops.
-- Mobile and the narrow in-app browser are first-class layouts. Never squeeze the desktop composition into them.
+## Copy preferences
+
+The user repeatedly rejected decorative filler. Do not add slogans, scene captions, metaphorical section names or introductory filler. Keep the user's own essay language intact.
+
+- Omit the author's name, the “Read my writing” link and the Sunny article subtitle.
+- Use the requested headings “Questions I think about” and “Projects I have tended”. Navigation can use the short labels Questions and Projects.
+- Do not restore “Find me here. Let’s keep the conversation growing.”
+- Show a working visual preview before proposing a future major redesign; the current version has been approved for publication.

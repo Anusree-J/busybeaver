@@ -6,12 +6,24 @@
     <title>busybeaver — a walk through things that matter</title>
     <meta
       name="description"
-      content="A woman's search for meaning. Notes on building, being human, and the questions that keep growing. By Anusree Jayakrishnan."
+      content="A woman's search for meaning. Notes on building, being human, and the questions that keep growing."
     />
     <link rel="icon" href="assets/beaver-logo-transparent.png" />
     <link rel="stylesheet" href="assets/fonts/fonts.css" />
     <link rel="stylesheet" href="forest.css" />
-    <link rel="preload" as="image" href="assets/forest/bluebell-woodland.jpg" />
+    <link rel="stylesheet" href="woodland.css" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/forest/woodland-clearing.webp"
+      media="(min-width: 601px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/forest/woodland-clearing-mobile.webp"
+      media="(max-width: 600px)"
+    />
   </head>
   <body class="woodland-page">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -30,54 +42,30 @@
       >
       <nav aria-label="Main navigation">
         <a href="#writing">Writing</a><a href="#growing">Questions</a
-        ><a href="#plantings">Work</a
+        ><a href="#plantings">Projects</a
         ><a href="#hello">Say hello <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="woodland-window">
-          <img
-            class="hero-photo"
-            src="assets/forest/bluebell-woodland.jpg"
-            alt="A woodland path winding between trees and a carpet of bluebell flowers"
-            fetchpriority="high"
-            width="2000"
-            height="1333"
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcset="assets/forest/woodland-clearing-mobile.webp"
           />
-          <span class="woodland-caption">a little room to wander</span>
-        </div>
-        <img
-          class="hero-blooms"
-          src="assets/botany/chamomile.jpg"
-          alt=""
-          width="960"
-          height="1200"
-        />
+          <img
+            class="scene-photo"
+            src="assets/forest/woodland-clearing.webp"
+            alt="Sunlit trees framing a woodland clearing, with wildflowers beside a winding footpath"
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+          />
+        </picture>
         <div class="hero-copy">
-          <p class="eyebrow">Come in. The gate is open.</p>
           <h1 id="hero-title">A woman’s search<br />for <em>meaning.</em></h1>
-          <p class="hero-intro">Hi — I’m glad you wandered in.</p>
-          <a class="walk-link" href="#writing"
-            >Take the walk <span aria-hidden="true">↓</span></a
-          >
-        </div>
-        <div class="hero-foot">
-          <span>Anusree Jayakrishnan</span
-          ><span>Building. Wondering. Growing.</span>
         </div>
       </section>
-
-      <div class="trail-bend" aria-hidden="true">
-        <svg
-          viewBox="0 0 1000 160"
-          preserveAspectRatio="none"
-          focusable="false"
-        >
-          <path d="M700 0 C700 75 290 25 290 95 S450 115 450 160" />
-        </svg>
-        <span>keep wandering</span>
-      </div>
       <section
         class="clearing section-wrap"
         id="writing"
@@ -85,10 +73,8 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">A place to pause</p>
-            <h2 id="writing-title">Notes from the walk.</h2>
+            <h2 id="writing-title">Writing.</h2>
           </div>
-          <p>On the things I’m building, <br />and the things that build me.</p>
         </div>
         <div id="posts-container" aria-live="polite" aria-busy="true">
           <p class="status">Opening the notebook…</p>
@@ -105,16 +91,6 @@
           </p></noscript
         >
       </section>
-
-      <div class="trail-bend trail-return" aria-hidden="true">
-        <svg
-          viewBox="0 0 1000 160"
-          preserveAspectRatio="none"
-          focusable="false"
-        >
-          <path d="M700 0 C700 75 290 25 290 95 S450 115 450 160" />
-        </svg>
-      </div>
       <section
         class="questions section-wrap"
         id="growing"
@@ -122,10 +98,8 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Along the way</p>
-            <h2 id="questions-title">Questions I’m tending.</h2>
+            <h2 id="questions-title">Questions I think about</h2>
           </div>
-          <p>Flowers grow where <br />the light gets through.</p>
         </div>
         <div class="question-grid">
           <article class="question">
@@ -181,16 +155,6 @@
           </article>
         </div>
       </section>
-      <section class="woodland-interlude" aria-label="A pause among the trees">
-        <img
-          src="assets/forest/woodland-path.jpg"
-          alt="A quiet path winding between tall woodland trees"
-          loading="lazy"
-          width="2200"
-          height="1237"
-        />
-        <p>There is always<br /><em>more to wonder about.</em></p>
-      </section>
       <section
         class="work-section section-wrap"
         id="plantings"
@@ -198,10 +162,8 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Planted in the commons</p>
-            <h2 id="work-title">Things I’ve helped grow.</h2>
+            <h2 id="work-title">Projects I have tended</h2>
           </div>
-          <p>Seeds anyone can grow.</p>
         </div>
         <div class="packets">
           <a
@@ -284,8 +246,7 @@
         aria-labelledby="path-title"
       >
         <div class="path-intro">
-          <p class="eyebrow">The path so far</p>
-          <h2 id="path-title">Where the walk<br />has led.</h2>
+          <h2 id="path-title">Experience.</h2>
           <img
             src="assets/botany/chamomile.jpg"
             alt=""
@@ -329,11 +290,10 @@
             <div class="stop-note">Supply chain &amp; operations, Goa.</div>
           </li>
           <li class="stop">
-            <div class="stop-when">2021</div>
+            <div class="stop-when">dec 2020 — jan 2021</div>
             <div class="stop-what">
-              Risk Management Intern · Ernst &amp; Young
+              Structural Engineering Intern · Skyroot Aerospace
             </div>
-            <div class="stop-note">Risk consulting, Gurugram.</div>
           </li>
           <li class="stop">
             <div class="stop-when">the seed · where it began</div>
@@ -347,16 +307,6 @@
           </li>
         </ol>
       </section>
-
-      <div class="trail-bend" aria-hidden="true">
-        <svg
-          viewBox="0 0 1000 160"
-          preserveAspectRatio="none"
-          focusable="false"
-        >
-          <path d="M700 0 C700 75 290 25 290 95 S450 115 450 160" />
-        </svg>
-      </div>
       <section
         class="publications section-wrap"
         id="pressed"
@@ -364,7 +314,6 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Pressed pages</p>
             <h2 id="pub-title">Publications.</h2>
           </div>
         </div>
@@ -429,24 +378,20 @@
       </section>
       <section class="hello" id="hello">
         <div class="hello-inner">
-          <p class="eyebrow">A bench at the end of the path</p>
-          <h2>Glad our paths crossed.</h2>
-          <p>Find me here. Let’s keep the conversation growing.</p>
+          <h2>Elsewhere.</h2>
+
           <div class="hello-links">
             <a href="https://github.com/Anusree-J"
               >GitHub <span aria-hidden="true">↗</span></a
             ><a href="https://x.com/merlumommy"
               >X / Twitter <span aria-hidden="true">↗</span></a
-            ><a href="#top"
-              >Back to the beginning <span aria-hidden="true">↑</span></a
-            >
+            ><a href="#top">Back to top <span aria-hidden="true">↑</span></a>
           </div>
         </div>
       </section>
     </main>
     <footer class="site-footer">
-      <span>Tended by one busy beaver · © 2026</span
-      ><a href="photo-credits.html">Photography credits</a>
+      <span>© 2026</span><a href="photo-credits.html">Image credits</a>
     </footer>
     <script src="blog.js" defer></script>
   </body>
