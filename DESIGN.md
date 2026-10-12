@@ -15,6 +15,8 @@ The user approved the full woodland scene preview on 12 October 2026 after rejec
 
 ## Copy preferences
 
+Use plain wording for work and volunteer experience. Do not use em dashes in site copy, titles, metadata or articles. Use full stops, commas, colons or “to” for date ranges as appropriate.
+
 The user repeatedly rejected decorative filler. Do not add slogans, scene captions, metaphorical section names or introductory filler. Keep the user's own essay language intact.
 
 - Omit the author's name, the “Read my writing” link and the Sunny article subtitle.
