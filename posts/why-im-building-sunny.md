@@ -1,6 +1,5 @@
 ---
 title: Why I’m building Sunny
-description: Ammumma, and the right to keep making your own choices.
 date: 2026-10-12
 category: Building
 tags: [Sunny, Family, Agency]
