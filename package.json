@@ -2,7 +2,7 @@
   "name": "busybeaver",
   "private": true,
   "scripts": {
-    "check": "prettier --check index.html article.html photo-credits.html forest.css blog.js tests/site.test.cjs .github/workflows/checks.yml package.json README.md && node --check blog.js && node --check script.js",
+    "check": "prettier --check index.html article.html photo-credits.html forest.css woodland.css blog.js tests/site.test.cjs .github/workflows/checks.yml package.json README.md && node --check blog.js && node --check script.js",
     "test": "node --test tests/*.test.cjs"
   },
   "devDependencies": {
