@@ -1,0 +1,294 @@
+/* A local visual preview. Shared article styles stay in forest.css. */
+.woodland-page {
+  background: #faf9f3;
+}
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  max-width: none;
+  padding: 22px 5%;
+  background: #faf9f3f5;
+}
+.brand {
+  font-size: 24px;
+}
+.brand img {
+  width: 27px;
+  height: 27px;
+}
+.brand-caption {
+  display: none;
+}
+.site-header nav {
+  font-size: 16px;
+  gap: 30px;
+}
+.hero {
+  max-width: none;
+  height: 100svh;
+  min-height: 730px;
+  padding: 0;
+  display: block;
+  position: relative;
+  background: #f5f4e9;
+}
+.scene-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.hero-copy {
+  position: absolute;
+  left: 25%;
+  top: 31%;
+  width: 50%;
+  text-align: center;
+  color: #2d412b;
+}
+.hero-copy .eyebrow {
+  font: 16px/1.5 var(--body);
+  color: #3e5037;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: clamp(46px, 4.4vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+.hero h1 em {
+  color: #465f36;
+}
+.walk-link {
+  margin-top: 29px;
+  font-size: 17px;
+  border-color: #7b8d67;
+  min-height: 44px;
+  gap: 24px;
+}
+.section-wrap {
+  max-width: 1050px;
+  padding: 85px 50px;
+}
+.section-heading {
+  margin-bottom: 25px;
+  text-align: left !important;
+}
+.section-heading h2 {
+  font-size: 35px;
+}
+.clearing {
+  max-width: 940px;
+}
+.clearing .section-heading {
+  margin-bottom: 10px;
+}
+.entry {
+  padding: 26px 0;
+}
+.entry-title {
+  font-size: 31px;
+}
+.entry-description:empty {
+  display: none;
+}
+.questions {
+  padding-top: 20px;
+}
+.questions .section-heading {
+  margin-left: 0;
+}
+.question-grid {
+  gap: 65px;
+}
+.question:nth-child(2),
+.question:nth-child(3) {
+  margin-top: 0;
+}
+.flower {
+  height: 260px;
+  margin-bottom: 10px;
+}
+.field-number {
+  display: none;
+}
+.question h3 {
+  font-size: 24px;
+}
+.question p {
+  font-size: 18px;
+}
+.work-section {
+  padding-top: 30px;
+}
+.packets {
+  gap: 5px 70px;
+}
+.packet .tag {
+  font-style: normal;
+  font-size: 14px;
+}
+.path-section {
+  padding-top: 35px;
+  gap: 100px;
+}
+.path-intro img {
+  display: none;
+}
+.path-intro h2 {
+  font-size: 35px;
+}
+.publications {
+  padding-top: 30px;
+}
+.page-scrap {
+  padding: 20px 0;
+}
+.hello {
+  max-width: 1050px;
+  padding: 30px 50px 80px;
+}
+.hello:before {
+  display: none;
+}
+.hello-inner {
+  max-width: none;
+}
+.hello h2 {
+  font-size: 35px;
+  margin: 0;
+}
+.hello-links {
+  margin-top: 15px;
+}
+.site-footer {
+  max-width: 1050px;
+  font-size: 13px;
+}
+@media (max-width: 800px) {
+  .site-header {
+    padding: 20px 30px;
+  }
+  .hero {
+    min-height: 750px;
+  }
+  .hero-copy {
+    left: 18%;
+    width: 64%;
+    top: 32%;
+  }
+  .hero h1 {
+    font-size: 48px;
+  }
+  .section-wrap {
+    padding: 55px 35px;
+  }
+  .question-grid {
+    gap: 30px;
+  }
+  .path-section {
+    gap: 45px;
+  }
+  .hello {
+    padding: 35px 35px 65px;
+  }
+}
+@media (max-width: 600px) {
+  .site-header {
+    padding: 15px 20px 9px;
+    gap: 8px;
+    background: #faf9f3f7;
+  }
+  .site-header nav {
+    gap: 25px;
+    font-size: 15px;
+  }
+  .hero {
+    min-height: 580px;
+    height: calc(100svh - 110px);
+    margin-top: 110px;
+    padding: 0;
+  }
+  .scene-photo {
+    object-position: 52% center;
+  }
+  .hero-copy {
+    left: 8%;
+    width: 84%;
+    top: 25%;
+    padding: 0;
+  }
+  .hero-copy .eyebrow {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(37px, 9vw, 49px);
+  }
+  .walk-link {
+    font-size: 16px;
+    margin-top: 22px;
+  }
+  .section-wrap {
+    padding: 45px 28px;
+  }
+  .section-heading h2,
+  .path-intro h2,
+  .hello h2 {
+    font-size: 31px;
+  }
+  .entry-title {
+    font-size: 27px;
+  }
+  .questions .section-heading {
+    text-align: left;
+  }
+  .question-grid {
+    display: block;
+  }
+  .question {
+    display: block;
+    margin-top: 30px !important;
+    min-height: 160px;
+  }
+  .flower {
+    float: right;
+    width: 120px;
+    height: 180px;
+    margin: -20px -15px 5px 15px;
+  }
+  .question:nth-child(2) .flower {
+    float: left;
+    margin: -20px 15px 5px -15px;
+  }
+  .question:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .question h3 {
+    padding-top: 10px;
+  }
+  .question p {
+    margin-top: 10px;
+  }
+  .path-section {
+    display: block;
+  }
+  .path-intro {
+    padding: 0 0 25px;
+    min-height: 0;
+  }
+  .hello {
+    padding: 25px 28px 55px;
+  }
+  .hello-links {
+    gap: 23px;
+  }
+  .site-footer {
+    padding: 20px 28px;
+  }
+}

@@ -17,3 +17,7 @@ The user rejected the dark, generic photo-banner treatment and approved a lighte
 - Flowers are unboxed, prominent plants among the content, not a row of rectangular image tiles.
 - Use a quiet winding trail and asymmetric spacing to connect the reading stops.
 - Mobile and the narrow in-app browser are first-class layouts. Never squeeze the desktop composition into them.
+
+## No decorative filler
+
+The user has repeatedly rejected invented poetic copy and decorative layout changes. Do not add slogans, scene captions, metaphorical section names or introductory filler. Use plain navigation and section labels. Keep the user's own essay language intact. Validate the visual direction with an actual browser preview before another full redesign replaces the live site.
