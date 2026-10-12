@@ -204,7 +204,7 @@ async function loadArticle() {
     const post = posts[index];
     document.title = `${post.title} · busybeaver`;
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content = post.description;
+    if (metaDesc && post.description) metaDesc.content = post.description;
     if (headerContainer) {
       headerContainer.innerHTML = `
                 <p class="overline">${escapeHTML(post.category)} · ${escapeHTML(gardenDate(post.date))} · ${calculateReadingTime(post.content)}</p>

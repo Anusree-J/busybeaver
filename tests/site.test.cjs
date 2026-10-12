@@ -100,6 +100,8 @@ test("article renders full Sunny text and older-post navigation", async (t) => {
   );
   await ready(d, "#article-content");
   assert.equal(d.querySelector("h1").textContent, "Why I’m building Sunny");
+  assert.equal(d.querySelector(".leaf-subtitle"), null);
+  assert.ok(d.querySelector('meta[name="description"]').content.trim());
   assert.match(
     d.querySelector("#article-content").textContent,
     /My grandmother is my home/,
