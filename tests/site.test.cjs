@@ -89,9 +89,31 @@ test("homepage renders both posts newest first and preserves required content", 
     /How do minds bloom|How do our bodies heal|Mental health, tended/,
   );
   assert.equal(d.querySelectorAll(".packet").length, 6);
-  assert.equal(d.querySelectorAll(".stop").length, 6);
+  assert.equal(d.querySelectorAll(".stop").length, 7);
+  const founder = d.querySelector(".stop:first-child .stop-what");
+  assert.match(founder.textContent, /Founder\s*·\s*Sunny/);
+  assert.equal(founder.querySelector("a").href, "https://mysunny.world/");
+  assert.doesNotMatch(
+    d.body.textContent,
+    /the seed|still in bloom|have tended|everything grows|still growing/i,
+  );
   assert.equal(d.querySelectorAll(".page-scrap").length, 5);
   assert.deepEqual(errors, []);
+});
+test("Writing and Questions use the same content width and horizontal spacing", async (t) => {
+  const { dom, document: d } = await openPage(t);
+  await ready(d, "#posts-container");
+  const writing = dom.window.getComputedStyle(d.querySelector("#writing"));
+  const questions = dom.window.getComputedStyle(d.querySelector("#growing"));
+  for (const property of [
+    "maxWidth",
+    "paddingLeft",
+    "paddingRight",
+    "marginLeft",
+    "marginRight",
+  ]) {
+    assert.equal(writing[property], questions[property], property);
+  }
 });
 test("article renders full Sunny text and older-post navigation", async (t) => {
   const { document: d, errors } = await openPage(

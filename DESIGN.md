@@ -20,6 +20,8 @@ Use plain wording for work and volunteer experience. Do not use em dashes in sit
 The user repeatedly rejected decorative filler. Do not add slogans, scene captions, metaphorical section names or introductory filler. Keep the user's own essay language intact.
 
 - Omit the author's name, the “Read my writing” link and the Sunny article subtitle.
-- Use the requested headings “Questions I think about” and “Projects I have tended”. Navigation can use the short labels Questions and Projects.
+- Use the headings “Questions I think about” and “Projects.” Navigation can use the short labels Questions and Projects.
+- Keep plant imagery in the visual design, not in biographical or interface copy. Do not use “the seed”, “still in bloom”, “tended”, or “still growing” as career labels, section headings, or status text. This supersedes the earlier “Projects I have tended” heading (22 October 2026).
+- Align Writing and Questions to the same left content edge; they must share the same container width and horizontal spacing.
 - Do not restore “Find me here. Let’s keep the conversation growing.”
 - Show a working visual preview before proposing a future major redesign; the current version has been approved for publication.

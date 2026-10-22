@@ -235,7 +235,7 @@ async function loadArticle() {
 }
 
 function gardenDate(dateStr) {
-  if (!dateStr || dateStr === "Coming Soon") return "still growing";
+  if (!dateStr || dateStr === "Coming Soon") return "coming soon";
   const date = new Date(dateStr);
   if (isNaN(date)) return String(dateStr).toLowerCase();
   return date
