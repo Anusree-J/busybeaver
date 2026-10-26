@@ -9,7 +9,23 @@ const puzzles = require("../connections/puzzles.json");
 const root = path.resolve(__dirname, "..");
 async function page(t, scenario = {}, hash = "") {
   const server = http.createServer(async (req, res) => {
-    const pathname = new URL(req.url, "http://localhost").pathname;
+    const requestUrl = new URL(req.url, "http://localhost");
+    const pathname = requestUrl.pathname;
+    if (pathname === "/api/public/aj-puzzles") {
+      res.writeHead(scenario.feedStatus || scenario.status || 200, {
+        "Content-Type": "application/json",
+      });
+      const cursor = requestUrl.searchParams.get("before") || "first";
+      res.end(
+        JSON.stringify(
+          scenario.feedPages?.[cursor] || {
+            puzzles: scenario.override ? scenario.data : puzzles,
+            nextCursor: null,
+          },
+        ),
+      );
+      return;
+    }
     if (pathname === "/connections/puzzles.json" && scenario.override) {
       res.writeHead(scenario.status || 200, {
         "Content-Type": "application/json",
@@ -45,7 +61,20 @@ async function page(t, scenario = {}, hash = "") {
     runScripts: "dangerously",
     virtualConsole: vc,
     beforeParse(w) {
-      w.fetch = (url, options) => fetch(new URL(url, origin), options);
+      w.fetch = (url, options) => {
+        const target = new URL(url, origin);
+        if (
+          target.hostname ===
+          "connections-friends-aj-ap.anusreejaykay.chatgpt.site"
+        ) {
+          (scenario.requests ||= []).push({ url: target.href, options });
+          return fetch(
+            new URL(target.pathname + target.search, origin),
+            options,
+          );
+        }
+        return fetch(target, options);
+      };
       w.AbortSignal = AbortSignal;
     },
   });
@@ -182,4 +211,75 @@ test("empty list and malformed data produce deliberate states", async (t) => {
     invalid.d.querySelector("#puzzle-list").textContent,
     /Could not load/,
   );
+});
+
+test("new AJ publications arrive from every feed page without editing the saved snapshot", async (t) => {
+  const newer = {
+    ...puzzles[0],
+    id: "new-publication",
+    title: "AJ #5",
+    publishedAt: puzzles[0].publishedAt + 1000,
+  };
+  const scenario = {
+    feedPages: {
+      first: { puzzles: [newer], nextCursor: 5 },
+      5: { puzzles, nextCursor: null },
+    },
+  };
+  const { d, errors } = await page(t, scenario);
+  assert.deepEqual(
+    [...d.querySelectorAll(".puzzle-link strong")].map((e) => e.textContent),
+    ["AJ #5", ...puzzles.map((p) => p.title)],
+  );
+  assert.equal(scenario.requests.length, 2);
+  assert.match(scenario.requests[1].url, /before=5$/);
+  assert.ok(
+    scenario.requests.every(
+      (r) => r.options.credentials === "omit" && r.options.cache === "no-store",
+    ),
+  );
+  d.querySelector(".puzzle-link").click();
+  await until(() => !d.querySelector("#game").hidden);
+  assert.equal(d.querySelector("#puzzle-title").textContent, "AJ #5");
+  assert.equal(d.querySelectorAll(".tile").length, 16);
+  assert.deepEqual(errors, []);
+});
+test("feed failure clearly labels the saved collection and retry discovers a new publication", async (t) => {
+  const scenario = { feedStatus: 503 };
+  const { d } = await page(t, scenario);
+  assert.equal(d.querySelectorAll(".puzzle-link").length, 4);
+  assert.match(
+    d.querySelector("#feed-notice").textContent,
+    /Showing the saved collection/,
+  );
+  assert.equal(d.querySelector("#feed-notice").hidden, false);
+  assert.equal(scenario.requests.length, 2);
+  const newer = {
+    ...puzzles[0],
+    id: "later-puzzle",
+    title: "AJ #5",
+    publishedAt: puzzles[0].publishedAt + 1000,
+  };
+  scenario.feedStatus = 200;
+  scenario.feedPages = {
+    first: { puzzles: [newer, ...puzzles], nextCursor: null },
+  };
+  d.querySelector("#feed-notice button").click();
+  await until(
+    () => d.querySelector("#puzzle-list").getAttribute("aria-busy") === "false",
+  );
+  assert.equal(d.querySelector("#feed-notice").hidden, true);
+  assert.equal(d.querySelector(".puzzle-link strong").textContent, "AJ #5");
+});
+test("invalid or repeated feed cursors do not loop or pretend the archive is current", async (t) => {
+  const scenario = {
+    feedPages: {
+      first: { puzzles, nextCursor: 4 },
+      4: { puzzles, nextCursor: 4 },
+    },
+  };
+  const { d } = await page(t, scenario);
+  assert.equal(d.querySelectorAll(".puzzle-link").length, 4);
+  assert.equal(d.querySelector("#feed-notice").hidden, false);
+  assert.ok(scenario.requests.length <= 2);
 });

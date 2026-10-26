@@ -9,6 +9,9 @@
     wordCategory,
   } = window.ConnectionsGame;
   const $ = (id) => document.getElementById(id);
+  const feedUrl =
+    "https://connections-friends-aj-ap.anusreejaykay.chatgpt.site/api/public/aj-puzzles";
+  let loading = false;
   let puzzles = [],
     puzzle,
     state,
@@ -50,6 +53,7 @@
         !/^[-a-zA-Z0-9]+$/.test(item.id) ||
         ids.has(item.id) ||
         !/^AJ #[1-9][0-9]*$/.test(item.title) ||
+        !Number.isSafeInteger(Number(item.title.slice(4))) ||
         !Number.isFinite(item.publishedAt) ||
         !Array.isArray(item.groups) ||
         item.groups.length !== 4
@@ -62,6 +66,7 @@
           !group ||
           typeof group.label !== "string" ||
           !group.label.trim() ||
+          group.label.length > 70 ||
           !Array.isArray(group.words) ||
           group.words.length !== 4 ||
           group.words.some(
@@ -289,15 +294,84 @@
       field.querySelector("textarea").select();
     }
   });
+  async function fetchJSON(url, signal, attempts = 1) {
+    for (let attempt = 0; attempt < attempts; attempt++) {
+      try {
+        const response = await fetch(url, {
+          signal,
+          credentials: "omit",
+          cache: "no-store",
+        });
+        if (!response.ok) throw new Error("Load failed");
+        return await response.json();
+      } catch (error) {
+        if (attempt + 1 === attempts || signal.aborted) throw error;
+        await new Promise((resolve) => setTimeout(resolve, 250));
+      }
+    }
+  }
+  async function publishedPuzzles() {
+    const signal = AbortSignal.timeout(12000);
+    const all = [];
+    let before = null;
+    for (let page = 0; page < 100; page++) {
+      const data = await fetchJSON(
+        feedUrl + (before === null ? "" : "?before=" + before),
+        signal,
+        2,
+      );
+      if (!data || !Array.isArray(data.puzzles) || data.puzzles.length > 20)
+        throw new Error("Invalid feed page");
+      const items = validate(data.puzzles);
+      if (
+        before !== null &&
+        items.some((item) => Number(item.title.slice(4)) >= before)
+      )
+        throw new Error("Feed repeated a page");
+      all.push(...items);
+      if (data.nextCursor === null) return validate(all);
+      if (
+        !Number.isSafeInteger(data.nextCursor) ||
+        data.nextCursor < 1 ||
+        !items.length ||
+        data.nextCursor !==
+          Math.min(...items.map((item) => Number(item.title.slice(4))))
+      )
+        throw new Error("Invalid feed cursor");
+      before = data.nextCursor;
+    }
+    throw new Error("The feed did not finish");
+  }
   async function load() {
+    if (loading) return;
+    loading = true;
+    $("library").hidden = false;
+    $("game").hidden = true;
+    $("feed-notice").hidden = true;
+    $("feed-notice").replaceChildren();
     $("puzzle-list").setAttribute("aria-busy", "true");
     $("puzzle-list").replaceChildren(element("p", "Loading puzzles…"));
     try {
-      const response = await fetch("connections/puzzles.json", {
-        signal: AbortSignal.timeout(12000),
-      });
-      if (!response.ok) throw new Error("Load failed");
-      puzzles = validate(await response.json());
+      try {
+        puzzles = await publishedPuzzles();
+      } catch {
+        puzzles = validate(
+          await fetchJSON(
+            "connections/puzzles.json",
+            AbortSignal.timeout(4000),
+          ),
+        );
+        const retry = element("button", "Try again");
+        retry.type = "button";
+        retry.addEventListener("click", load);
+        $("feed-notice").append(
+          document.createTextNode(
+            "The latest puzzles couldn’t load. Showing the saved collection. ",
+          ),
+          retry,
+        );
+        $("feed-notice").hidden = false;
+      }
       route();
     } catch {
       $("library").hidden = false;
@@ -311,6 +385,7 @@
       );
     } finally {
       $("puzzle-list").setAttribute("aria-busy", "false");
+      loading = false;
     }
   }
   window.addEventListener("hashchange", route);
