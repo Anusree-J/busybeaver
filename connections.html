@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Connections · busybeaver</title>
+    <meta
+      name="description"
+      content="Play Anusree's Connections puzzles. Find four groups of four related words."
+    />
+    <link rel="icon" href="assets/beaver-logo-transparent.png" />
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="forest.css" />
+    <link rel="stylesheet" href="connections/style.css" />
+    <script src="connections/engine.js" defer></script>
+    <script src="connections/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        ><img
+          src="assets/beaver-logo-transparent.png"
+          width="34"
+          height="34"
+          alt=""
+        /><span>busybeaver</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a
+        ><a href="connections.html" aria-current="page">Connections</a>
+      </nav>
+    </header>
+    <main id="main" class="connections-page">
+      <section id="library" aria-labelledby="page-title">
+        <h1 id="page-title">Connections.</h1>
+        <div id="puzzle-list" aria-live="polite" aria-busy="true">
+          <p>Loading puzzles…</p>
+        </div>
+        <noscript><p>Enable JavaScript to play these puzzles.</p></noscript>
+      </section>
+      <section id="game" hidden aria-labelledby="puzzle-title">
+        <a href="connections.html" class="back-link">← All puzzles</a>
+        <h1 id="puzzle-title" tabindex="-1"></h1>
+        <p class="instructions">Find four groups of four related words.</p>
+        <p id="feedback" role="status" aria-live="polite"></p>
+        <div id="word-board" aria-label="Word puzzle"></div>
+        <p id="mistakes"></p>
+        <div id="game-actions" class="game-actions">
+          <button id="shuffle" type="button">Shuffle</button>
+          <button id="deselect" type="button" disabled>Deselect all</button>
+          <button id="submit" type="button" class="primary" disabled>
+            Submit
+          </button>
+        </div>
+        <div class="game-secondary">
+          <span id="selection-status">Select four words.</span
+          ><button id="reveal" type="button" class="text-button">
+            Reveal answers
+          </button>
+        </div>
+        <div id="result" hidden>
+          <h2 id="result-title"></h2>
+          <div id="result-grid" aria-label="Guess history"></div>
+          <button id="copy" type="button">Copy result</button
+          ><label id="copy-fallback" hidden
+            >Copy your result<textarea readonly></textarea>
+          </label>
+        </div>
+        <p class="difficulty">
+          <span><i class="level-0"></i>Easy</span
+          ><span><i class="level-1"></i>Medium</span
+          ><span><i class="level-2"></i>Hard</span
+          ><span><i class="level-3"></i>Tricky</span>
+        </p>
+        <p id="storage-notice" role="status"></p>
+      </section>
+      <dialog id="reveal-dialog" aria-labelledby="reveal-title">
+        <h2 id="reveal-title">Reveal answers?</h2>
+        <p>This ends your attempt and shows the remaining groups.</p>
+        <form method="dialog">
+          <button value="cancel" autofocus>Keep playing</button
+          ><button value="reveal" class="primary">Reveal answers</button>
+        </form>
+      </dialog>
+    </main>
+  </body>
+</html>

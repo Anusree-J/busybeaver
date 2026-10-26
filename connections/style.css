@@ -1,0 +1,266 @@
+.connections-page {
+  max-width: 860px;
+  margin: 40px auto 90px;
+  padding: 0 24px;
+}
+.connections-page h1 {
+  font-size: clamp(38px, 7vw, 58px);
+  margin: 20px 0 24px;
+}
+#puzzle-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+.puzzle-link {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  background: #fffdf8;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.puzzle-link:hover {
+  border-color: var(--moss);
+}
+.puzzle-link strong {
+  font: 32px var(--display);
+}
+.puzzle-link span {
+  font: 13px var(--label);
+  color: var(--muted);
+}
+.puzzle-swatches {
+  display: flex;
+  gap: 5px;
+}
+.puzzle-swatches i {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+#game {
+  max-width: 640px;
+  margin: auto;
+}
+#game h1,
+.instructions {
+  text-align: center;
+}
+.back-link {
+  font: 14px var(--label);
+}
+.instructions {
+  font-size: 18px;
+}
+#feedback {
+  min-height: 52px;
+  text-align: center;
+  font: 14px/1.6 var(--label);
+  padding: 12px 0;
+}
+#word-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.connections-page button {
+  font: 14px var(--label);
+  color: var(--ink);
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #9ba88e;
+  border-radius: 30px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.connections-page button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.connections-page button.primary {
+  background: var(--ink);
+  color: #fff;
+}
+#word-board .tile {
+  border: 0;
+  border-radius: 7px;
+  background: #e9ecdf;
+  min-height: 84px;
+  padding: 8px 3px;
+  font-size: clamp(10px, 2.5vw, 15px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+#word-board .tile[aria-pressed="true"] {
+  background: #526346;
+  color: #fff;
+}
+.solved-row {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 18px 12px;
+  border-radius: 7px;
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.solved-row h2 {
+  font: 700 14px/1.5 var(--label);
+  letter-spacing: 0;
+}
+.solved-row p {
+  font: 14px/1.6 var(--label);
+  margin-top: 6px;
+}
+.level-0 {
+  background: #f0cf6a;
+}
+.level-1 {
+  background: #b2cf8d;
+}
+.level-2 {
+  background: #abc9e3;
+}
+.level-3 {
+  background: #c7b3df;
+}
+#mistakes {
+  margin: 24px 0 20px;
+  text-align: center;
+  font: 14px var(--label);
+}
+.game-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.game-secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  font: 12px var(--label);
+}
+.connections-page button.text-button {
+  border: 0;
+  text-decoration: underline;
+  padding: 10px 0;
+  font-size: 12px;
+}
+.difficulty {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 24px 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+  font: 12px var(--label);
+}
+.difficulty span {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.difficulty i {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+#result {
+  text-align: center;
+  margin-top: 28px;
+}
+#result h2 {
+  font-size: 28px;
+}
+#result-grid {
+  font: 24px/1.4 var(--label);
+  margin: 20px 0;
+}
+#storage-notice {
+  font: 12px/1.5 var(--label);
+  color: var(--muted);
+}
+#copy-fallback {
+  display: block;
+  font: 14px var(--label);
+  margin-top: 20px;
+}
+#copy-fallback textarea {
+  display: block;
+  width: 100%;
+  min-height: 140px;
+  margin-top: 10px;
+  font: 16px monospace;
+}
+#reveal-dialog {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 28px;
+  max-width: 440px;
+  width: calc(100% - 32px);
+}
+#reveal-dialog::backdrop {
+  background: #20302088;
+}
+#reveal-dialog h2 {
+  font-size: 28px;
+}
+#reveal-dialog p {
+  margin: 16px 0;
+}
+#reveal-dialog form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 600px) {
+  .connections-page {
+    padding: 0 16px;
+    margin-top: 24px;
+  }
+  #puzzle-list {
+    grid-template-columns: 1fr;
+  }
+  .game-actions {
+    gap: 6px;
+  }
+  .game-actions button {
+    padding: 12px 15px;
+    font-size: 12px;
+  }
+  #word-board {
+    gap: 6px;
+  }
+  #word-board .tile {
+    min-height: 74px;
+  }
+  .solved-row h2 {
+    font-size: 12px;
+  }
+  .solved-row p {
+    font-size: 12px;
+  }
+  .difficulty {
+    gap: 12px;
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

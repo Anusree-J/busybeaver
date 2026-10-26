@@ -1,0 +1,94 @@
+[
+  {
+    "id": "05d62851-dbc5-40ad-9bd7-769b8d243cf4",
+    "title": "AJ #4",
+    "publishedAt": 1792863335708,
+    "groups": [
+      {
+        "label": "ENDS OF THESE BURN",
+        "words": ["SPARKLER", "MATCH", "INCENSE", "CIGARETTE"]
+      },
+      {
+        "label": "TYPE OF STICKS",
+        "words": ["CINNAMON", "GLUE", "GLOW", "YARD"]
+      },
+      {
+        "label": "ENDING WITH TRIGONOMETRIC FUNCTIONS",
+        "words": ["STAN", "TACOS", "BASIN", "APRICOT"]
+      },
+      {
+        "label": "TYPE OF BURNS",
+        "words": ["SUN", "HEART", "RAZOR", "ROPE"]
+      }
+    ]
+  },
+  {
+    "id": "set-03-between-lines-v1",
+    "title": "AJ #3",
+    "publishedAt": 1792841400002,
+    "groups": [
+      {
+        "label": "SYMBOLS ON NATIONAL FLAGS",
+        "words": ["CRESCENT", "STARS", "SWORD", "CIRCLE"]
+      },
+      {
+        "label": "SAME SINGULAR AND PLURAL",
+        "words": ["AIRCRAFT", "BISON", "SHEEP", "SWINE"]
+      },
+      {
+        "label": "GIT ___",
+        "words": ["LAB", "BUCKET", "HUB", "KRAKEN"]
+      },
+      {
+        "label": "COUNTRIES WITH THE LAST LETTER CHANGED",
+        "words": ["INDIC", "CHILL", "CHINS", "MALTS"]
+      }
+    ]
+  },
+  {
+    "id": "set-02-second-look-v1",
+    "title": "AJ #2",
+    "publishedAt": 1792841400001,
+    "groups": [
+      {
+        "label": "SHADES OF RED",
+        "words": ["VERMILION", "RUBY", "WINE", "CHERRY"]
+      },
+      {
+        "label": "SERVICES GOOGLE OFFERS",
+        "words": ["SEARCH", "EMAIL", "DRIVE", "ADS"]
+      },
+      {
+        "label": "FIRST WORDS OF TV GAME SHOWS",
+        "words": ["JEOPARDY", "DEAL", "PRESS", "SPIN"]
+      },
+      {
+        "label": "___ ISLAND",
+        "words": ["LONG", "STATEN", "TREASURE", "CORAL"]
+      }
+    ]
+  },
+  {
+    "id": "set-01-common-threads-v1",
+    "title": "AJ #1",
+    "publishedAt": 1792841400000,
+    "groups": [
+      {
+        "label": "TITLES OF NOBILITY",
+        "words": ["EARL", "DUKE", "LORD", "PRINCE"]
+      },
+      {
+        "label": "TYPES OF TEA",
+        "words": ["PEPPERMINT", "LEMON", "DARJEELING", "ENGLISH"]
+      },
+      {
+        "label": "MODEL SURNAMES",
+        "words": ["BANKS", "LIMA", "MOSS", "CAMPBELL"]
+      },
+      {
+        "label": "ENDINGS OF COMMON IDIOMS",
+        "words": ["ICE", "CAKE", "BEANS", "BULLET"]
+      }
+    ]
+  }
+]
